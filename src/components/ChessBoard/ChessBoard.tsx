@@ -7,7 +7,7 @@ export type ChessBoardProps = {
 }
 
 const Container = styled.div<{ size?: string | number }>`
-  border: solid 1px red;
+  border: solid 1px blue;
   width: ${props => props.size ? props.size : "90vh"};
   height: ${props => props.size ? props.size : "90vh"};
 `

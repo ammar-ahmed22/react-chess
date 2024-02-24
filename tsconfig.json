@@ -25,5 +25,5 @@
     "skipLibCheck": true,
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["node_modules", "dist", "types"]
+  "exclude": ["node_modules", "dist", "types", ".storybook", "src/**/*.stories.ts"]
 }
