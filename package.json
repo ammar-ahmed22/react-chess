@@ -1,11 +1,13 @@
 {
   "name": "@ammarahmedca/react-chess",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React components to use with my custom chess engine",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "repository": "https://github.com/ammar-ahmed22/react-chess.git",
   "author": "Ammar Ahmed <ammar.ahmed1@uwaterloo.ca>",
   "license": "MIT",
@@ -22,10 +24,16 @@
     "rimraf": "^5.0.5",
     "rollup": "^4.12.0",
     "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "tslib": "^2.6.2",
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "scripts": {
+    "dev": "rollup -c --watch",
+    "build": "rollup -c"
   }
 }
