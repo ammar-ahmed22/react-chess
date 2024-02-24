@@ -1,12 +1,13 @@
 {
-  "name": "@ammarahmedca/react-chess",
-  "version": "0.1.1",
+  "name": "@ammar-ahmed22/react-chess",
+  "version": "0.1.5",
   "description": "React components to use with my custom chess engine",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "repository": "https://github.com/ammar-ahmed22/react-chess.git",
   "author": "Ammar Ahmed <ammar.ahmed1@uwaterloo.ca>",
