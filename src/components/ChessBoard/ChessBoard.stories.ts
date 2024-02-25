@@ -16,3 +16,11 @@ type Story = StoryObj<typeof meta>;
 export const Size: Story = {
   args: { size: "90vh" }
 }
+
+export const StartPosition: Story = {
+  args: { position: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR" }
+}
+
+export const FlippedBoard: Story = {
+  args: { position: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR", flipBoard: true }
+}

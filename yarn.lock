@@ -12,11 +12,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ammar-ahmed22/chess-engine@npm:^0.1.5":
+  version: 0.1.5
+  resolution: "@ammar-ahmed22/chess-engine@npm:0.1.5"
+  checksum: 10c0/822617afc2655ee911f404d71ea1755506608af4f924b5b7bace34701d4096064ef4f4ea49486d1971e53af858672048ea60e2e238cfe61a548cec80e33a4298
+  languageName: node
+  linkType: hard
+
 "@ammar-ahmed22/react-chess@workspace:.":
   version: 0.0.0-use.local
   resolution: "@ammar-ahmed22/react-chess@workspace:."
   dependencies:
+    "@ammar-ahmed22/chess-engine": "npm:^0.1.5"
     "@rollup/plugin-commonjs": "npm:^25.0.7"
+    "@rollup/plugin-image": "npm:^3.0.3"
     "@rollup/plugin-node-resolve": "npm:^15.2.3"
     "@rollup/plugin-typescript": "npm:^11.1.6"
     "@storybook/addon-essentials": "npm:^7.6.17"
@@ -2645,6 +2654,21 @@ __metadata:
     rollup:
       optional: true
   checksum: 10c0/d096af5aedd55c19ac528daa84a4cacdf21a69c9c9b20c23e04f27a64966cb383f5e2b01b9c903d40318e35dcaa74dc7b5292a844c6cbc66c252f5447eac05b4
+  languageName: node
+  linkType: hard
+
+"@rollup/plugin-image@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "@rollup/plugin-image@npm:3.0.3"
+  dependencies:
+    "@rollup/pluginutils": "npm:^5.0.1"
+    mini-svg-data-uri: "npm:^1.4.4"
+  peerDependencies:
+    rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+  checksum: 10c0/e699e52c44b1799df887f72959779c9d2af11f04b23ed84dc7a4c423f72c66b14510c8a366a9856e07047fbabbd6e94c1972fcced2c80b2c5e7e91e8414e8b48
   languageName: node
   linkType: hard
 
@@ -8531,6 +8555,15 @@ __metadata:
   version: 1.0.1
   resolution: "min-indent@npm:1.0.1"
   checksum: 10c0/7e207bd5c20401b292de291f02913230cb1163abca162044f7db1d951fa245b174dc00869d40dd9a9f32a885ad6a5f3e767ee104cf278f399cb4e92d3f582d5c
+  languageName: node
+  linkType: hard
+
+"mini-svg-data-uri@npm:^1.4.4":
+  version: 1.4.4
+  resolution: "mini-svg-data-uri@npm:1.4.4"
+  bin:
+    mini-svg-data-uri: cli.js
+  checksum: 10c0/24545fa30b5a45449241bf19c25b8bc37594b63ec06401b3d563bd1c2e8a6abb7c18741f8b354e0064baa63c291be214154bf3a66f201ae71dfab3cc1a5e3191
   languageName: node
   linkType: hard
 
