@@ -49,7 +49,6 @@ const ChessSquare: React.FC<ChessSquareProps> = ({
   rank,
   file,
   size,
-  algebraic,
   piece,
   showFile,
   showRank,
