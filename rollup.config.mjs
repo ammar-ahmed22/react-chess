@@ -3,6 +3,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
 import external from "rollup-plugin-peer-deps-external";
 import dts from "rollup-plugin-dts";
+import image from "@rollup/plugin-image";
 import pkg from "./package.json" assert { type: "json" };
 
 export default [
@@ -24,6 +25,7 @@ export default [
     plugins: [
       external(),
       resolve(),
+      image(),
       commonjs(),
       typescript({
         tsconfig: "./tsconfig.json"
