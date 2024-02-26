@@ -51,6 +51,7 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
   size = "90vh",
   position,
   flipBoard,
+  showCoordinates,
   pieceSet = "cases",
   darkColor = "#b58863",
   lightColor = "#f0d9b5"
@@ -66,6 +67,16 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
     <BoardContainer size={size} >
       {
         squares.map((square) => {
+          let showRank = false;
+          let showFile = false;
+          if (showCoordinates) {
+            if (square.rank === (flipBoard ? 8 : 1)) {
+              showFile = true;
+            }
+            if (square.file === (flipBoard ? "h" : "a")) {
+              showRank = true;
+            }
+          }
           return (
             <ChessSquare 
               key={square.algebraic}
@@ -73,8 +84,8 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
               pieceSet={pieceSet}
               darkColor={darkColor}
               lightColor={lightColor}
-              showRank
-              showFile
+              showRank={showRank}
+              showFile={showFile}
               {...square}
             />
           )
