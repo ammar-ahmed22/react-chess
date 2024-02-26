@@ -52,7 +52,7 @@ export type ChessBoardProps = {
    * @param algebraic The algebraic identifier for the square (e.g. a3)
    * @returns 
    */
-  onSquareClick?: (algebraic: string) => void
+  onSquareClick?: (square: SquareType) => void
 }
 
 
@@ -95,7 +95,7 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
 
   const handleClick = (square: SquareType) => {
     setClickedSquare(SquareID.fromSquareIDType(square.algebraic))
-    if (onSquareClick) onSquareClick(square.algebraic);
+    if (onSquareClick) onSquareClick(square);
   } 
 
   return (
