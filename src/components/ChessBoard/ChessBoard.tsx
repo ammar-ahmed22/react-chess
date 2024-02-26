@@ -1,8 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { ChessSquare } from "../ChessSquare";
 import styled from "styled-components";
-import { useSquares } from "../../hooks";
+import { SquareType, useSquares } from "../../hooks";
 import type { PieceSet } from "../../assets";
+import type { HalfMove } from "@ammar-ahmed22/chess-engine";
+import { SquareID } from "@ammar-ahmed22/chess-engine";
+
 
 export type ChessBoardProps = {
   /**
@@ -35,11 +38,24 @@ export type ChessBoardProps = {
   /**
    * If true, coordinates identifiers will be shown
    */
-  showCoordinates?: boolean
+  showCoordinates?: boolean,
+  /**
+   * If provided, when clicking on a piece, shows valid moves
+   */
+  validMoves?: HalfMove[]
+  /**
+   * If provided, overrides the default move identifier
+   */
+  moveIdentifier?: React.ReactNode,
+  /**
+   * Callback function when a square is clicked
+   * @param algebraic The algebraic identifier for the square (e.g. a3)
+   * @returns 
+   */
+  onSquareClick?: (algebraic: string) => void
 }
 
 const BoardContainer = styled.div<{ size: string | number }>`
-  border: solid 1px blue;
   width: ${props => props.size};
   height: ${props => props.size};
   display: grid;
@@ -54,14 +70,39 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
   showCoordinates,
   pieceSet = "cases",
   darkColor = "#b58863",
-  lightColor = "#f0d9b5"
+  lightColor = "#f0d9b5",
+  validMoves,
+  onSquareClick
 }) => {
 
   const [squares, updateSquares] = useSquares({ position, flip: flipBoard });
+  const [clickedSquare, setClickedSquare] = useState<SquareID | null>(null);
+  const [currentMoves, setCurrentMoves] = useState<HalfMove[]>([]);
 
   useEffect(() => {
     updateSquares({ position, flip: flipBoard });
   }, [position, flipBoard])
+
+  useEffect(() => {
+    console.log(`clicked: ${clickedSquare?.algebraic}`);
+    if (clickedSquare && validMoves) {
+      setCurrentMoves(validMoves.filter(m => {
+        const from = SquareID.fromSquareIDType(m.from);
+        return from.algebraic === clickedSquare.algebraic;
+      }))
+    }
+  }, [clickedSquare])
+
+  useEffect(() => {
+    if (currentMoves.length) {
+      console.log("current moves:", currentMoves);
+    }
+  }, [currentMoves])
+
+  const handleClick = (square: SquareType) => {
+    setClickedSquare(SquareID.fromSquareIDType(square.algebraic))
+    if (onSquareClick) onSquareClick(square.algebraic);
+  } 
 
   return (
     <BoardContainer size={size} >
@@ -77,6 +118,11 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
               showRank = true;
             }
           }
+          let showMove = false;
+          for (let move of currentMoves) {
+            const to = SquareID.fromSquareIDType(move.to);
+            if (to.algebraic === square.algebraic) showMove = true;
+          }
           return (
             <ChessSquare 
               key={square.algebraic}
@@ -86,6 +132,8 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
               lightColor={lightColor}
               showRank={showRank}
               showFile={showFile}
+              showMove={showMove}
+              onClick={() => handleClick(square)}
               {...square}
             />
           )

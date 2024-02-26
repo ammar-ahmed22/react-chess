@@ -1,6 +1,6 @@
 import React from "react";
 import type { SquareType } from "../../hooks/useSquares";
-import { SquareID } from "@ammar-ahmed22/chess-engine";
+import { HalfMove, SquareID } from "@ammar-ahmed22/chess-engine";
 import PieceMap from "../../assets";
 import type { PieceSet } from "../../assets"
 import styled from "styled-components";
@@ -16,6 +16,7 @@ const Square = styled.div<{ size: string | number, bg: string, color?: string }>
   justify-content: center;
   align-items: center;
   position: relative;
+  cursor: pointer;
 `
 
 const PieceImage = styled.img`
@@ -23,7 +24,7 @@ const PieceImage = styled.img`
   height: 80%;
 `
 
-const Identifier = styled.div<{ color: string, top?: string, left?: string, bottom?: string, right?: string }>`
+const Coordinate = styled.div<{ color: string, top?: string, left?: string, bottom?: string, right?: string }>`
   position: absolute;
   margin: 0;
   padding; 0;  
@@ -36,13 +37,53 @@ const Identifier = styled.div<{ color: string, top?: string, left?: string, bott
   font-size: 0.75rem;
 `
 
-export type ChessSquareProps = SquareType & {
+const Identifier = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 25%;
+  width: 25%;
+  border-radius: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+`
+
+export type ChessSquareProps = SquareType & React.HTMLAttributes<HTMLDivElement> & {
+  /**
+   * The size of the square
+   */
   size: string | number
+  /**
+   * The color if the square is dark. The color of the text on light squares.
+   * @default string "#000"
+   */
   darkColor?: string,
+  /**
+   * The color if the square is light. The color of text on dark squares.
+   * @default string "#ff"
+   */
   lightColor?: string,
+  /**
+   * The piece set to use
+   * @default string "cases"
+   */
   pieceSet?: PieceSet,
+  /**
+   * If true, shows the file letter
+   */
   showFile?: boolean,
+  /**
+   * If true, shows the rank number
+   */
   showRank?: boolean,
+  /**
+   * If true, shows a move identifier on the square
+   */
+  showMove?: boolean,
+  /**
+   * If provided, overrides the default move identifier
+   */
+  moveIdentifier?: React.ReactNode
 }
 
 const ChessSquare: React.FC<ChessSquareProps> = ({
@@ -54,7 +95,10 @@ const ChessSquare: React.FC<ChessSquareProps> = ({
   showRank,
   darkColor = "#000",
   lightColor = "#fff",
-  pieceSet = "cases"
+  pieceSet = "cases",
+  showMove,
+  moveIdentifier,
+  ...others
 }) => {
   const id = new SquareID(file, rank);
   const isDark = (id.file + id.rank) % 2 === 0;
@@ -63,6 +107,7 @@ const ChessSquare: React.FC<ChessSquareProps> = ({
       size={size} 
       bg={isDark ? darkColor : lightColor} 
       color={isDark ? lightColor : darkColor}
+      {...others}
     >
       {
         piece && (
@@ -71,24 +116,29 @@ const ChessSquare: React.FC<ChessSquareProps> = ({
       }
       {
         showFile && (
-          <Identifier
+          <Coordinate
             color={isDark ? lightColor : darkColor}
             right={"2px"}
             bottom={"2px"}
           >
             {file}
-          </Identifier>
+          </Coordinate>
         )
       }
       {
         showRank && (
-          <Identifier
+          <Coordinate
             color={isDark ? lightColor : darkColor}
             top={"2px"}
             left={"2px"}
           >
             {rank}
-          </Identifier>
+          </Coordinate>
+        )
+      }
+      {
+        showMove && (
+          <Identifier />
         )
       }
     </Square>
