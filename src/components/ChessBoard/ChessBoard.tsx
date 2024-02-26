@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ChessSquare } from "../ChessSquare";
-import styled from "styled-components";
+import { BoardContainer } from "./ChessBoard.styles";
 import { SquareType, useSquares } from "../../hooks";
 import type { PieceSet } from "../../assets";
 import type { HalfMove } from "@ammar-ahmed22/chess-engine";
@@ -55,13 +55,7 @@ export type ChessBoardProps = {
   onSquareClick?: (algebraic: string) => void
 }
 
-const BoardContainer = styled.div<{ size: string | number }>`
-  width: ${props => props.size};
-  height: ${props => props.size};
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  gap: 0;
-`
+
 
 const ChessBoard: React.FC<ChessBoardProps> = ({
   size = "90vh",
