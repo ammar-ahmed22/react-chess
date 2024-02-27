@@ -27,5 +27,8 @@ export const FlippedBoard: Story = {
 }
 
 export const ValidMoves: Story = {
-  args: { position: chess.fen(), validMoves: chess.validMoves(), showCoordinates: true }
+  args: { position: chess.fen(), validMoves: chess.validMoves(), showCoordinates: true, draggable: true, onDragOver: (square) => {
+    return true;
+  }}
 }
+
