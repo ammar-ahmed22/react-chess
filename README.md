@@ -45,12 +45,29 @@ export default function App() {
 ```
 
 ## `ChessBoard` Props
-| Prop | Default Value | Options | Description |
-| :--- | :------------ | :------ | :---------- |
-| `size` | `"90vh"`      | `string` or `number` | The size of the board as a CSS string value or a number in pixels. Square sizes will be calculated accordingly | 
-| `position` | N/A | `string` | The Chess position to render as a FEN (without metadata) string. |
-| `flipBoard` | `false` | `boolean` | If true, the board is flipped. |
-| `pieceSet` | `cases` | `cases, neo` or custom piece image map | The piece set (images) to use, provided are the `cases` and `neo` piece. Otherwise, provide a custom piece image map to use custom pieces. |
+<!-- CHESSBOARD PROPS TABLE START -->
+| Prop | Type | Default | Params | Description | 
+| :--- | :--- | :------ | :----- | :---------- |
+| darkColor | `string` | `"#b58863"` | N/A | The color to use for dark squares. Must be a valid CSS color string (e.g. "#fff", "rgb(255, 255, 255)", etc.) |
+| flipBoard | `boolean` | `false` | N/A | If true, board is flipped. |
+| lightColor | `string` | `"#f0d9b5"` | N/A | The color to use for light squares. Must be a valid CSS color string (e.g. "#fff", "rgb(255, 255, 255)", etc.) |
+| moveIdentifier | `React.ReactNode` | N/A | N/A | If provided, overrides the default move identifier |
+| onSquareClick | `(square: SquareType) => void` | N/A | @param square - The square that is being clicked | Callback function when a square is clicked |
+| onSquareDrag | `(square: SquareType, ev: React.DragEvent<HTMLImageElement>) => void` | N/A | @param square - The square that is being dragged<br />@param ev - The drag event for the piece image being dragged. | Callback function that is called while a piece is being dragged. |
+| onSquareDragEnd | `(square: SquareType, ev: React.DragEvent<HTMLImageElement>) => void` | N/A | @param square - The square that was being dragged<br />@param ev - The drag event for the piece image that was being dragged. | Callback function that is called when a piece stops being dragged |
+| onSquareDragEnter | `(square: SquareType, ev: React.DragEvent<HTMLDivElement>) => void` | N/A | @param square - The square that is being entered<br />@param ev - The drag event for the square that is being entered. | Callback function that is called when a dragged piece enters a square |
+| onSquareDragLeave | `(square: SquareType, ev: React.DragEvent<HTMLDivElement>) => void` | N/A | @param square - The square that is being left.<br />@param ev - The drag event for the square that is being left. | Callback function that is called when a dragged piece leaves a square |
+| onSquareDragOver | `(square: SquareType, ev: React.DragEvent<HTMLDivElement>) => boolean` | N/A | @param square - The square that the piece is being dragged over.<br />@param ev - The drag event for the square that is being dragged over. | Callback function that is called when a piece is dragged over a square.
+If the function returns true, the drop is allowed, otherwise it is not. |
+| onSquareDragStart | `(square: SquareType, ev: React.DragEvent<HTMLImageElement>) => void` | N/A | @param square - The square that is being dragged.<br />@param ev - The drag event for the piece image that is being dragged. | Callback function that is called when a piece is starting to be dragged |
+| onSquareDrop | `(from: SquareType, on: SquareType, ev: React.DragEvent<HTMLDivElement>) => void` | N/A | @param from - The square that the piece is being dragged from<br />@param on - The square that the piece is being dropped on<br />@param ev - The drag event for the square that is being dropped on. | Callback function that is called when a piece is dropped over a square |
+| pieceSet | `PieceSet | PieceImageMap` | `"cases"` | N/A | The piece set (images) to use, provided are the `cases` and `neo` piece sets. Otherwise, provide a custom piece image map to use custom pieces. |
+| position | `string` | N/A | N/A | The Chess position to render as a FEN (without metadata) string. |
+| showCoordinates | `boolean` | `false` | N/A | If true, coordinates identifiers will be shown. Rank numbers will be shown on the left most file, file letters will be shown on the bottom most rank (irrespective of board orientation). |
+| size | `string | number` | `"90vh"` | N/A | The size of the board as a CSS string value or a number in pixels. Square sizes will be calculated accordingly |
+| squareDraggable | `boolean | (square: SquareType) => boolean` | `true` | @param square - If a function is passed, the square that will be dragged | If false, cannot be dragged. If a function is passed, the result of the function will determine if that square can be dragged. |
+| validMoves | `[HalfMove](https://github.com/ammar-ahmed22/chess-engine)[]` | N/A | N/A | If provided, when clicking on a piece, shows valid moves |
+<!-- CHESSBOARD PROPS TABLE END -->
 
 
 ## License
