@@ -6,8 +6,9 @@ import type { PieceSet } from "../../assets";
 import type { HalfMove } from "@ammar-ahmed22/chess-engine";
 import { SquareID } from "@ammar-ahmed22/chess-engine";
 
+type HTMLProps = React.HTMLAttributes<HTMLDivElement>;
 
-export type ChessBoardProps = {
+export type ChessBoardProps = HTMLProps & {
   /**
    * Size of the board
    */
@@ -55,29 +56,63 @@ export type ChessBoardProps = {
   onSquareClick?: (square: SquareType) => void
   /**
    * If false, cannot be dragged
+   * @param square If a function is passed, the square that will be dragged
    * @default true
    */
-  draggable?: boolean
+  squareDraggable?: boolean | ((square: SquareType) => boolean),
   /**
    * Callback function that is called when a piece is starting to be dragged
    * @param square The square that is being dragged.
+   * @param ev The drag event for the piece image that is being dragged.
    * @returns 
    */
-  onDragStart?: (square: SquareType) => void;
+  onSquareDragStart?: (square: SquareType, ev: React.DragEvent<HTMLImageElement>) => void;
   /**
    * Callback function that is called when a piece is dropped over a square
    * @param from The square that the piece is being dragged from
    * @param on The square that the piece is being dropped on
+   * @param ev The drag event for the square that is being dropped on.
    * @returns 
    */
-  onDrop?: (from: SquareType, on: SquareType) => void;
+  onSquareDrop?: (from: SquareType, on: SquareType, ev: React.DragEvent<HTMLDivElement>) => void;
   /**
    * Callback function that is called when a piece is dragged over a square. 
    * If the function returns true, the drop is allowed, otherwise it is not.
    * @param square The square that the piece is being dragged over.
    * @returns 
    */
-  onDragOver?: (square: SquareType) => boolean;
+  onSquareDragOver?: (square: SquareType, ev: React.DragEvent<HTMLDivElement>) => boolean;
+  /**
+   * Callback function that is called while a piece is being dragged.
+   * 
+   * @param square The square that is being dragged
+   * @param ev The drag event for the piece image being dragged.
+   * @returns 
+   */
+  onSquareDrag?: (square: SquareType, ev: React.DragEvent<HTMLImageElement>) => void;
+  /**
+   * Callback function that is called when a piece stops being dragged
+   * 
+   * @param square The square that was being dragged
+   * @param ev The drag event for the piece image that was being dragged.
+   * @returns 
+   */
+  onSquareDragEnd?: (square: SquareType, ev: React.DragEvent<HTMLImageElement>) => void;
+  /**
+   * Callback function that is called when a dragged piece enters a square
+   * 
+   * @param square The square that is being entered
+   * @param ev The drag event for the square that is being entered.
+   * @returns 
+   */
+  onSquareDragEnter?: (square: SquareType, ev: React.DragEvent<HTMLDivElement>) => void;
+  /**
+   * Callback function that is called when a dragged piece leaves a square
+   * @param square The square that is being left.
+   * @param ev The drag event for the square that is being left.
+   * @returns 
+   */
+  onSquareDragLeave?: (square: SquareType, ev: React.DragEvent<HTMLDivElement>) => void;
 }
 
 
@@ -88,14 +123,19 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
   flipBoard,
   showCoordinates,
   pieceSet = "cases",
-  darkColor = "#b58863",
-  lightColor = "#f0d9b5",
+  lightColor = "#E2E8F0",
+  darkColor = "#2C5282",
   validMoves,
   onSquareClick,
-  draggable,
-  onDragStart,
-  onDrop,
-  onDragOver
+  squareDraggable,
+  onSquareDragStart,
+  onSquareDrop,
+  onSquareDragOver,
+  onSquareDrag,
+  onSquareDragEnd,
+  onSquareDragEnter,
+  onSquareDragLeave,
+  ...others
 }) => {
 
   const [squares, updateSquares] = useSquares({ position, flip: flipBoard });
@@ -113,7 +153,7 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
         return from.algebraic === clickedSquare.algebraic;
       }))
     }
-  }, [clickedSquare])
+  }, [clickedSquare, validMoves])
 
   const genShowProps = (square: SquareType) => {
     let showRank = false;
@@ -140,7 +180,7 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
   } 
 
   return (
-    <BoardContainer size={size} >
+    <BoardContainer size={size} {...others} >
       {
         squares.map((square) => {
           return (
@@ -152,10 +192,14 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
               lightColor={lightColor}
               {...genShowProps(square)}
               onClick={() => handleClick(square)}
-              draggable={draggable}
-              onDragStart={onDragStart}
-              onDrop={onDrop}
-              onDragOver={onDragOver}
+              draggable={squareDraggable}
+              onDragStart={onSquareDragStart}
+              onDrop={onSquareDrop}
+              onDragOver={onSquareDragOver}
+              onDrag={onSquareDrag}
+              onDragEnter={onSquareDragEnter}
+              onDragLeave={onSquareDragLeave}
+              onDragEnd={onSquareDragEnd}
               {...square}
             />
           )

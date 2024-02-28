@@ -15,7 +15,7 @@ type Story = StoryObj<typeof meta>;
 
 const chess = new Chess();
 export const Size: Story = {
-  args: { size: "90vh" }
+  args: { size: "90vh" },
 }
 
 export const StartPosition: Story = {
@@ -27,8 +27,12 @@ export const FlippedBoard: Story = {
 }
 
 export const ValidMoves: Story = {
-  args: { position: chess.fen(), validMoves: chess.validMoves(), showCoordinates: true, draggable: true, onDragOver: (square) => {
-    return true;
-  }}
+  args: { 
+    position: chess.fen(), 
+    validMoves: chess.validMoves(), 
+  }
 }
+
+
+
 
