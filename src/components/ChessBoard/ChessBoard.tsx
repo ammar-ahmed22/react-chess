@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ChessSquare } from "../ChessSquare";
 import { BoardContainer } from "./ChessBoard.styles";
 import { SquareType, useSquares } from "../../hooks";
-import type { PieceSet } from "../../assets";
+import type { PieceSet, PieceImageMap } from "../../assets";
 import type { HalfMove } from "@ammar-ahmed22/chess-engine";
 import { SquareID } from "@ammar-ahmed22/chess-engine";
 
@@ -22,10 +22,10 @@ export type ChessBoardProps = HTMLProps & {
    */
   flipBoard?: boolean;
   /**
-   * The piece set to use.
+   * The piece set to use or a custom piece image map
    * @default PieceSet "cases"
    */
-  pieceSet?: PieceSet;
+  pieceSet?: PieceSet | PieceImageMap;
   /**
    * The color to use for dark squares
    * @default string #b58863

@@ -18,21 +18,13 @@ npm install --save @ammar-ahmed22/react-chess
 ```
 
 ## Features
-- Responsive Board Size
-- Setting Board Position with FEN string
-- Board Orientation
-- Custom Actions
-  + onSquareClick
-  + onSquareDragStart
-  + onSquareDrag
-  + onSquareDragEnd
-  + onSquareDragEnter
-  + onSquareDragOver
-  + onSquareDrop
-  + onSquareDragLeave
-+ Light/Dark Square Colors
-+ Valid Move Identifiers
-+ Board Coordinate Identifiers
+- *Responsive Board Size*: Squares and board height auto-update with one prop
+- *FEN Position*: Set the position of the board with a FEN string
+- *Board Orientation*: Flip the orientation of the board
+- *Custom Actions*: Various custom actions for each individual square are available with single callbacks (e.g onSquareClick)
++ *UI Customization*: Change light/dark square colors, override move identifiers, etc.
++ *Valid Move Identifiers*: Handles showing valid moves onClick when provided
++ *Board Coordinate Identifiers*: Show coordinate identifiers
 
 ## Usage
 ### Render a Chess FEN position
@@ -57,6 +49,8 @@ export default function App() {
 | :--- | :------------ | :------ | :---------- |
 | `size` | `"90vh"`      | `string` or `number` | The size of the board as a CSS string value or a number in pixels. Square sizes will be calculated accordingly | 
 | `position` | N/A | `string` | The Chess position to render as a FEN (without metadata) string. |
+| `flipBoard` | `false` | `boolean` | If true, the board is flipped. |
+| `pieceSet` | `cases` | `cases, neo` or custom piece image map | The piece set (images) to use, provided are the `cases` and `neo` piece. Otherwise, provide a custom piece image map to use custom pieces. |
 
 
 ## License

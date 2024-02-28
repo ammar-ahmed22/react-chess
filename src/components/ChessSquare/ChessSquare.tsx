@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import type { SquareType } from "../../hooks/useSquares";
 import { SquareID } from "@ammar-ahmed22/chess-engine";
 import PieceMap from "../../assets";
-import type { PieceSet } from "../../assets";
+import type { PieceSet, PieceImageMap } from "../../assets";
 import {
   Square,
   PieceImage,
@@ -41,10 +41,10 @@ export type ChessSquareProps = SquareType &
      */
     lightColor?: string;
     /**
-     * The piece set to use
+     * The piece set to use or a custom piece image map
      * @default string "cases"
      */
-    pieceSet?: PieceSet;
+    pieceSet?: PieceSet | PieceImageMap;
     /**
      * If true, shows the file letter
      */
@@ -172,6 +172,7 @@ const ChessSquare: React.FC<ChessSquareProps> = ({
   const isDark = (id.file + id.rank) % 2 === 0;
   const square: SquareType = { file, rank, algebraic, piece };
   const imageRef = useRef<HTMLImageElement>(null);
+  const pieceImage = piece && (typeof pieceSet === "string" ? PieceMap[pieceSet][piece.color][piece.type] : pieceSet[piece.color][piece.type]);
   return (
     <Square
       size={size}
@@ -203,7 +204,7 @@ const ChessSquare: React.FC<ChessSquareProps> = ({
       {piece && (
         <PieceImage
           ref={imageRef}
-          src={PieceMap[pieceSet][piece.color][piece.type]}
+          src={pieceImage}
           draggable={
             typeof draggable === "boolean"
               ? draggable
