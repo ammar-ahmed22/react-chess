@@ -55,7 +55,7 @@ export default function App() {
 ## `ChessBoard` Props
 | Prop | Default Value | Options | Description |
 | :=== | :============ | :====== | :========== |
-| size | `"90vh"`      | `string` | `number` | The size of the board as a CSS string value or a number in pixels. Square sizes will be calculated accordingly | 
+| size | `"90vh"`      | `string` or `number` | The size of the board as a CSS string value or a number in pixels. Square sizes will be calculated accordingly | 
 
 ## License
 [MIT](./LICENSE)
