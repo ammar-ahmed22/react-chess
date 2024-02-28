@@ -57,8 +57,7 @@ export default function App() {
 | onSquareDragEnd | <code>(square: SquareType, ev: React.DragEvent<HTMLImageElement>) => void</code> | N/A | Callback function that is called when a piece stops being dragged |
 | onSquareDragEnter | <code>(square: SquareType, ev: React.DragEvent<HTMLDivElement>) => void</code> | N/A | Callback function that is called when a dragged piece enters a square |
 | onSquareDragLeave | <code>(square: SquareType, ev: React.DragEvent<HTMLDivElement>) => void</code> | N/A | Callback function that is called when a dragged piece leaves a square |
-| onSquareDragOver | <code>(square: SquareType, ev: React.DragEvent<HTMLDivElement>) => boolean</code> | N/A | Callback function that is called when a piece is dragged over a square.
-If the function returns true, the drop is allowed, otherwise it is not. |
+| onSquareDragOver | <code>(square: SquareType, ev: React.DragEvent<HTMLDivElement>) => boolean</code> | N/A | Callback function that is called when a piece is dragged over a square.<br />If the function returns true, the drop is allowed, otherwise it is not. |
 | onSquareDragStart | <code>(square: SquareType, ev: React.DragEvent<HTMLImageElement>) => void</code> | N/A | Callback function that is called when a piece is starting to be dragged |
 | onSquareDrop | <code>(from: SquareType, on: SquareType, ev: React.DragEvent<HTMLDivElement>) => void</code> | N/A | Callback function that is called when a piece is dropped over a square |
 | pieceSet | <code>PieceSet &#124; PieceImageMap</code> | `"cases"` | The piece set (images) to use, provided are the `cases` and `neo` piece sets. Otherwise, provide a custom piece image map to use custom pieces. |
