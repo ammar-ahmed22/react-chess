@@ -13,13 +13,13 @@ export default [
       {
         file: pkg.main,
         sourcemap: true,
-        format: "cjs"
+        format: "cjs",
       },
       {
         file: pkg.module,
         sourcemap: true,
-        format: "esm"
-      }
+        format: "esm",
+      },
     ],
     external: ["react", "react-dom"],
     plugins: [
@@ -28,14 +28,13 @@ export default [
       image(),
       commonjs(),
       typescript({
-        tsconfig: "./tsconfig.json"
-      })
-    ]
+        tsconfig: "./tsconfig.json",
+      }),
+    ],
   },
   {
     input: "dist/esm/types/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
-    plugins: [dts()]
-  }
-]
-
+    plugins: [dts()],
+  },
+];

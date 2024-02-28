@@ -1,22 +1,29 @@
 import { useState } from "react";
-import { Color, fen2matrix, PieceType, validateFEN } from "@ammar-ahmed22/chess-engine";
+import {
+  Color,
+  fen2matrix,
+  PieceType,
+  validateFEN,
+} from "@ammar-ahmed22/chess-engine";
 
 export type SquareType = {
-  file: string,
-  rank: number,
-  algebraic: string,
+  file: string;
+  rank: number;
+  algebraic: string;
   piece?: {
-    type: PieceType,
-    color: Color
-  }
-}
+    type: PieceType;
+    color: Color;
+  };
+};
 
 export type useSquareOpts = {
-  position?: string,
-  flip?: boolean
-}
+  position?: string;
+  flip?: boolean;
+};
 
-export const useSquares = (opts?: useSquareOpts): [SquareType[], (opts: useSquareOpts) => void] => {
+export const useSquares = (
+  opts?: useSquareOpts,
+): [SquareType[], (opts: useSquareOpts) => void] => {
   const createSquares = (opts?: useSquareOpts): SquareType[] => {
     const result: SquareType[] = [];
     const files = "abcdefgh";
@@ -25,23 +32,25 @@ export const useSquares = (opts?: useSquareOpts): [SquareType[], (opts: useSquar
         result.push({
           file,
           rank,
-          algebraic: `${file}${rank}`
-        })
+          algebraic: `${file}${rank}`,
+        });
       }
     }
 
     if (opts?.position) {
       try {
         validateFEN(opts.position);
-        const flatMatrix = fen2matrix(opts.position).flatMap(a => a);
+        const flatMatrix = fen2matrix(opts.position).flatMap(
+          (a) => a,
+        );
         for (let i = 0; i < flatMatrix.length; i++) {
           const piece = flatMatrix[i];
           const square = result[i];
           if (piece && square) {
             square.piece = {
               type: piece.type,
-              color: piece.color
-            }
+              color: piece.color,
+            };
             result[i] = square;
           }
         }
@@ -49,18 +58,19 @@ export const useSquares = (opts?: useSquareOpts): [SquareType[], (opts: useSquar
           result.reverse();
         }
       } catch (error) {
-        console.warn(error)
+        console.warn(error);
       }
     }
     return result;
-  }
-  
+  };
 
-  const [squares, setSquares] = useState<SquareType[]>(createSquares(opts));
+  const [squares, setSquares] = useState<SquareType[]>(
+    createSquares(opts),
+  );
 
   const updateSquares = (opts: useSquareOpts) => {
     setSquares(createSquares(opts));
-  }
+  };
 
   return [squares, updateSquares];
-}
+};

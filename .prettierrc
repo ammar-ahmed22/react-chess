@@ -1,4 +1,5 @@
 {
   "printWidth": 70,
-  "arrowParens": "always"
+  "arrowParens": "always",
+  "tabWidth": 2
 }
