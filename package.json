@@ -39,6 +39,7 @@
     "storybook": "^7.6.17",
     "styled-components": "^6.1.8",
     "tslib": "^2.6.2",
+    "typedoc": "^0.25.9",
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
@@ -52,7 +53,8 @@
     "build-storybook": "storybook build",
     "bump": "node ./scripts/bumpVersion.js",
     "publish": "yarn build && yarn bump && yarn npm publish --access public",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "readme": "node ./scripts/readmeProps.js"
   },
   "packageManager": "yarn@4.1.0"
 }

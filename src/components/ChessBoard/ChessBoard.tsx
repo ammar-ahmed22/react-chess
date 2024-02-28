@@ -10,34 +10,37 @@ type HTMLProps = React.HTMLAttributes<HTMLDivElement>;
 
 export type ChessBoardProps = HTMLProps & {
   /**
-   * Size of the board
+   * The size of the board as a CSS string value or a number in pixels. Square sizes will be calculated accordingly
+   * @default "90vh"
    */
   size?: string | number;
   /**
-   * Chess position to render as FEN string
+   * The Chess position to render as a FEN (without metadata) string.
    */
   position?: string;
   /**
    * If true, board is flipped.
+   * @default false
    */
   flipBoard?: boolean;
   /**
-   * The piece set to use or a custom piece image map
-   * @default PieceSet "cases"
+   * The piece set (images) to use, provided are the `cases` and `neo` piece sets. Otherwise, provide a custom piece image map to use custom pieces.
+   * @default "cases"
    */
   pieceSet?: PieceSet | PieceImageMap;
   /**
-   * The color to use for dark squares
-   * @default string #b58863
+   * The color to use for dark squares. Must be a valid CSS color string (e.g. "#fff", "rgb(255, 255, 255)", etc.)
+   * @default "#b58863"
    */
   darkColor?: string;
   /**
-   * The color to use for light squares
-   * @default string #f0d9b5
+   * The color to use for light squares. Must be a valid CSS color string (e.g. "#fff", "rgb(255, 255, 255)", etc.)
+   * @default "#f0d9b5"
    */
   lightColor?: string;
   /**
-   * If true, coordinates identifiers will be shown
+   * If true, coordinates identifiers will be shown. Rank numbers will be shown on the left most file, file letters will be shown on the bottom most rank (irrespective of board orientation).
+   * @default false
    */
   showCoordinates?: boolean;
   /**
@@ -50,12 +53,11 @@ export type ChessBoardProps = HTMLProps & {
   moveIdentifier?: React.ReactNode;
   /**
    * Callback function when a square is clicked
-   * @param algebraic The algebraic identifier for the square (e.g. a3)
-   * @returns
+   * @param square The square that is being clicked
    */
   onSquareClick?: (square: SquareType) => void;
   /**
-   * If false, cannot be dragged
+   * If false, cannot be dragged. If a function is passed, the result of the function will determine if that square can be dragged.
    * @param square If a function is passed, the square that will be dragged
    * @default true
    */
@@ -85,7 +87,9 @@ export type ChessBoardProps = HTMLProps & {
   /**
    * Callback function that is called when a piece is dragged over a square.
    * If the function returns true, the drop is allowed, otherwise it is not.
+   * 
    * @param square The square that the piece is being dragged over.
+   * @param ev The drag event for the square that is being dragged over.
    * @returns
    */
   onSquareDragOver?: (

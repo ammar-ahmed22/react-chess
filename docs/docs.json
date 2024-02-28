@@ -1,0 +1,3085 @@
+{
+	"id": 0,
+	"name": "@ammar-ahmed22/react-chess",
+	"variant": "project",
+	"kind": 1,
+	"flags": {},
+	"children": [
+		{
+			"id": 9,
+			"name": "ChessBoardProps",
+			"variant": "declaration",
+			"kind": 2097152,
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+					"line": 11,
+					"character": 12,
+					"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L11"
+				}
+			],
+			"type": {
+				"type": "intersection",
+				"types": [
+					{
+						"type": "reference",
+						"target": {
+							"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+							"qualifiedName": "HTMLProps"
+						},
+						"name": "HTMLProps",
+						"package": "@ammar-ahmed22/react-chess"
+					},
+					{
+						"type": "reflection",
+						"declaration": {
+							"id": 10,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 15,
+									"name": "darkColor",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "The color to use for dark squares. Must be a valid CSS color string (e.g. \"#fff\", \"rgb(255, 255, 255)\", etc.)"
+											}
+										],
+										"blockTags": [
+											{
+												"tag": "@default",
+												"content": [
+													{
+														"kind": "code",
+														"text": "```ts\n\"#b58863\"\n```"
+													}
+												]
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+											"line": 35,
+											"character": 2,
+											"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L35"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 13,
+									"name": "flipBoard",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "If true, board is flipped."
+											}
+										],
+										"blockTags": [
+											{
+												"tag": "@default",
+												"content": [
+													{
+														"kind": "code",
+														"text": "```ts\nfalse\n```"
+													}
+												]
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+											"line": 25,
+											"character": 2,
+											"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L25"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									}
+								},
+								{
+									"id": 16,
+									"name": "lightColor",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "The color to use for light squares. Must be a valid CSS color string (e.g. \"#fff\", \"rgb(255, 255, 255)\", etc.)"
+											}
+										],
+										"blockTags": [
+											{
+												"tag": "@default",
+												"content": [
+													{
+														"kind": "code",
+														"text": "```ts\n\"#f0d9b5\"\n```"
+													}
+												]
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+											"line": 40,
+											"character": 2,
+											"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L40"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 19,
+									"name": "moveIdentifier",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "If provided, overrides the default move identifier"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+											"line": 53,
+											"character": 2,
+											"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L53"
+										}
+									],
+									"type": {
+										"type": "reference",
+										"target": {
+											"sourceFileName": "node_modules/@types/react/index.d.ts",
+											"qualifiedName": "React.ReactNode"
+										},
+										"name": "React.ReactNode",
+										"package": "@types/react"
+									}
+								},
+								{
+									"id": 20,
+									"name": "onSquareClick",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Callback function when a square is clicked"
+											}
+										],
+										"blockTags": [
+											{
+												"tag": "@param",
+												"name": "square",
+												"content": [
+													{
+														"kind": "text",
+														"text": "The square that is being clicked"
+													}
+												]
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+											"line": 58,
+											"character": 2,
+											"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L58"
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 21,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+													"line": 58,
+													"character": 18,
+													"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L58"
+												}
+											],
+											"signatures": [
+												{
+													"id": 22,
+													"name": "__type",
+													"variant": "signature",
+													"kind": 4096,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Callback function when a square is clicked"
+															}
+														]
+													},
+													"parameters": [
+														{
+															"id": 23,
+															"name": "square",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "The square that is being clicked"
+																	}
+																]
+															},
+															"type": {
+																"type": "reference",
+																"target": 64,
+																"name": "SquareType",
+																"package": "@ammar-ahmed22/react-chess"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									}
+								},
+								{
+									"id": 44,
+									"name": "onSquareDrag",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Callback function that is called while a piece is being dragged."
+											}
+										],
+										"blockTags": [
+											{
+												"tag": "@param",
+												"name": "square",
+												"content": [
+													{
+														"kind": "text",
+														"text": "The square that is being dragged"
+													}
+												]
+											},
+											{
+												"tag": "@param",
+												"name": "ev",
+												"content": [
+													{
+														"kind": "text",
+														"text": "The drag event for the piece image being dragged."
+													}
+												]
+											},
+											{
+												"tag": "@returns",
+												"content": []
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+											"line": 106,
+											"character": 2,
+											"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L106"
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 45,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+													"line": 106,
+													"character": 17,
+													"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L106"
+												}
+											],
+											"signatures": [
+												{
+													"id": 46,
+													"name": "__type",
+													"variant": "signature",
+													"kind": 4096,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Callback function that is called while a piece is being dragged."
+															}
+														],
+														"blockTags": [
+															{
+																"tag": "@returns",
+																"content": []
+															}
+														]
+													},
+													"parameters": [
+														{
+															"id": 47,
+															"name": "square",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "The square that is being dragged"
+																	}
+																]
+															},
+															"type": {
+																"type": "reference",
+																"target": 64,
+																"name": "SquareType",
+																"package": "@ammar-ahmed22/react-chess"
+															}
+														},
+														{
+															"id": 48,
+															"name": "ev",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "The drag event for the piece image being dragged."
+																	}
+																]
+															},
+															"type": {
+																"type": "reference",
+																"target": {
+																	"sourceFileName": "node_modules/@types/react/index.d.ts",
+																	"qualifiedName": "React.DragEvent"
+																},
+																"typeArguments": [
+																	{
+																		"type": "reference",
+																		"target": {
+																			"sourceFileName": "node_modules/typescript/lib/lib.dom.d.ts",
+																			"qualifiedName": "HTMLImageElement"
+																		},
+																		"name": "HTMLImageElement",
+																		"package": "typescript"
+																	}
+																],
+																"name": "React.DragEvent",
+																"package": "@types/react"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									}
+								},
+								{
+									"id": 49,
+									"name": "onSquareDragEnd",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Callback function that is called when a piece stops being dragged"
+											}
+										],
+										"blockTags": [
+											{
+												"tag": "@param",
+												"name": "square",
+												"content": [
+													{
+														"kind": "text",
+														"text": "The square that was being dragged"
+													}
+												]
+											},
+											{
+												"tag": "@param",
+												"name": "ev",
+												"content": [
+													{
+														"kind": "text",
+														"text": "The drag event for the piece image that was being dragged."
+													}
+												]
+											},
+											{
+												"tag": "@returns",
+												"content": []
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+											"line": 117,
+											"character": 2,
+											"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L117"
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 50,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+													"line": 117,
+													"character": 20,
+													"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L117"
+												}
+											],
+											"signatures": [
+												{
+													"id": 51,
+													"name": "__type",
+													"variant": "signature",
+													"kind": 4096,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Callback function that is called when a piece stops being dragged"
+															}
+														],
+														"blockTags": [
+															{
+																"tag": "@returns",
+																"content": []
+															}
+														]
+													},
+													"parameters": [
+														{
+															"id": 52,
+															"name": "square",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "The square that was being dragged"
+																	}
+																]
+															},
+															"type": {
+																"type": "reference",
+																"target": 64,
+																"name": "SquareType",
+																"package": "@ammar-ahmed22/react-chess"
+															}
+														},
+														{
+															"id": 53,
+															"name": "ev",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "The drag event for the piece image that was being dragged."
+																	}
+																]
+															},
+															"type": {
+																"type": "reference",
+																"target": {
+																	"sourceFileName": "node_modules/@types/react/index.d.ts",
+																	"qualifiedName": "React.DragEvent"
+																},
+																"typeArguments": [
+																	{
+																		"type": "reference",
+																		"target": {
+																			"sourceFileName": "node_modules/typescript/lib/lib.dom.d.ts",
+																			"qualifiedName": "HTMLImageElement"
+																		},
+																		"name": "HTMLImageElement",
+																		"package": "typescript"
+																	}
+																],
+																"name": "React.DragEvent",
+																"package": "@types/react"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									}
+								},
+								{
+									"id": 54,
+									"name": "onSquareDragEnter",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Callback function that is called when a dragged piece enters a square"
+											}
+										],
+										"blockTags": [
+											{
+												"tag": "@param",
+												"name": "square",
+												"content": [
+													{
+														"kind": "text",
+														"text": "The square that is being entered"
+													}
+												]
+											},
+											{
+												"tag": "@param",
+												"name": "ev",
+												"content": [
+													{
+														"kind": "text",
+														"text": "The drag event for the square that is being entered."
+													}
+												]
+											},
+											{
+												"tag": "@returns",
+												"content": []
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+											"line": 128,
+											"character": 2,
+											"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L128"
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 55,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+													"line": 128,
+													"character": 22,
+													"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L128"
+												}
+											],
+											"signatures": [
+												{
+													"id": 56,
+													"name": "__type",
+													"variant": "signature",
+													"kind": 4096,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Callback function that is called when a dragged piece enters a square"
+															}
+														],
+														"blockTags": [
+															{
+																"tag": "@returns",
+																"content": []
+															}
+														]
+													},
+													"parameters": [
+														{
+															"id": 57,
+															"name": "square",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "The square that is being entered"
+																	}
+																]
+															},
+															"type": {
+																"type": "reference",
+																"target": 64,
+																"name": "SquareType",
+																"package": "@ammar-ahmed22/react-chess"
+															}
+														},
+														{
+															"id": 58,
+															"name": "ev",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "The drag event for the square that is being entered."
+																	}
+																]
+															},
+															"type": {
+																"type": "reference",
+																"target": {
+																	"sourceFileName": "node_modules/@types/react/index.d.ts",
+																	"qualifiedName": "React.DragEvent"
+																},
+																"typeArguments": [
+																	{
+																		"type": "reference",
+																		"target": {
+																			"sourceFileName": "node_modules/typescript/lib/lib.dom.d.ts",
+																			"qualifiedName": "HTMLDivElement"
+																		},
+																		"name": "HTMLDivElement",
+																		"package": "typescript"
+																	}
+																],
+																"name": "React.DragEvent",
+																"package": "@types/react"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									}
+								},
+								{
+									"id": 59,
+									"name": "onSquareDragLeave",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Callback function that is called when a dragged piece leaves a square"
+											}
+										],
+										"blockTags": [
+											{
+												"tag": "@param",
+												"name": "square",
+												"content": [
+													{
+														"kind": "text",
+														"text": "The square that is being left."
+													}
+												]
+											},
+											{
+												"tag": "@param",
+												"name": "ev",
+												"content": [
+													{
+														"kind": "text",
+														"text": "The drag event for the square that is being left."
+													}
+												]
+											},
+											{
+												"tag": "@returns",
+												"content": []
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+											"line": 138,
+											"character": 2,
+											"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L138"
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 60,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+													"line": 138,
+													"character": 22,
+													"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L138"
+												}
+											],
+											"signatures": [
+												{
+													"id": 61,
+													"name": "__type",
+													"variant": "signature",
+													"kind": 4096,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Callback function that is called when a dragged piece leaves a square"
+															}
+														],
+														"blockTags": [
+															{
+																"tag": "@returns",
+																"content": []
+															}
+														]
+													},
+													"parameters": [
+														{
+															"id": 62,
+															"name": "square",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "The square that is being left."
+																	}
+																]
+															},
+															"type": {
+																"type": "reference",
+																"target": 64,
+																"name": "SquareType",
+																"package": "@ammar-ahmed22/react-chess"
+															}
+														},
+														{
+															"id": 63,
+															"name": "ev",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "The drag event for the square that is being left."
+																	}
+																]
+															},
+															"type": {
+																"type": "reference",
+																"target": {
+																	"sourceFileName": "node_modules/@types/react/index.d.ts",
+																	"qualifiedName": "React.DragEvent"
+																},
+																"typeArguments": [
+																	{
+																		"type": "reference",
+																		"target": {
+																			"sourceFileName": "node_modules/typescript/lib/lib.dom.d.ts",
+																			"qualifiedName": "HTMLDivElement"
+																		},
+																		"name": "HTMLDivElement",
+																		"package": "typescript"
+																	}
+																],
+																"name": "React.DragEvent",
+																"package": "@types/react"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									}
+								},
+								{
+									"id": 39,
+									"name": "onSquareDragOver",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Callback function that is called when a piece is dragged over a square.\nIf the function returns true, the drop is allowed, otherwise it is not."
+											}
+										],
+										"blockTags": [
+											{
+												"tag": "@param",
+												"name": "square",
+												"content": [
+													{
+														"kind": "text",
+														"text": "The square that the piece is being dragged over."
+													}
+												]
+											},
+											{
+												"tag": "@param",
+												"name": "ev",
+												"content": [
+													{
+														"kind": "text",
+														"text": "The drag event for the square that is being dragged over."
+													}
+												]
+											},
+											{
+												"tag": "@returns",
+												"content": []
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+											"line": 95,
+											"character": 2,
+											"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L95"
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 40,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+													"line": 95,
+													"character": 21,
+													"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L95"
+												}
+											],
+											"signatures": [
+												{
+													"id": 41,
+													"name": "__type",
+													"variant": "signature",
+													"kind": 4096,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Callback function that is called when a piece is dragged over a square.\nIf the function returns true, the drop is allowed, otherwise it is not."
+															}
+														],
+														"blockTags": [
+															{
+																"tag": "@returns",
+																"content": []
+															}
+														]
+													},
+													"parameters": [
+														{
+															"id": 42,
+															"name": "square",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "The square that the piece is being dragged over."
+																	}
+																]
+															},
+															"type": {
+																"type": "reference",
+																"target": 64,
+																"name": "SquareType",
+																"package": "@ammar-ahmed22/react-chess"
+															}
+														},
+														{
+															"id": 43,
+															"name": "ev",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "The drag event for the square that is being dragged over."
+																	}
+																]
+															},
+															"type": {
+																"type": "reference",
+																"target": {
+																	"sourceFileName": "node_modules/@types/react/index.d.ts",
+																	"qualifiedName": "React.DragEvent"
+																},
+																"typeArguments": [
+																	{
+																		"type": "reference",
+																		"target": {
+																			"sourceFileName": "node_modules/typescript/lib/lib.dom.d.ts",
+																			"qualifiedName": "HTMLDivElement"
+																		},
+																		"name": "HTMLDivElement",
+																		"package": "typescript"
+																	}
+																],
+																"name": "React.DragEvent",
+																"package": "@types/react"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "boolean"
+													}
+												}
+											]
+										}
+									}
+								},
+								{
+									"id": 28,
+									"name": "onSquareDragStart",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Callback function that is called when a piece is starting to be dragged"
+											}
+										],
+										"blockTags": [
+											{
+												"tag": "@param",
+												"name": "square",
+												"content": [
+													{
+														"kind": "text",
+														"text": "The square that is being dragged."
+													}
+												]
+											},
+											{
+												"tag": "@param",
+												"name": "ev",
+												"content": [
+													{
+														"kind": "text",
+														"text": "The drag event for the piece image that is being dragged."
+													}
+												]
+											},
+											{
+												"tag": "@returns",
+												"content": []
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+											"line": 71,
+											"character": 2,
+											"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L71"
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 29,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+													"line": 71,
+													"character": 22,
+													"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L71"
+												}
+											],
+											"signatures": [
+												{
+													"id": 30,
+													"name": "__type",
+													"variant": "signature",
+													"kind": 4096,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Callback function that is called when a piece is starting to be dragged"
+															}
+														],
+														"blockTags": [
+															{
+																"tag": "@returns",
+																"content": []
+															}
+														]
+													},
+													"parameters": [
+														{
+															"id": 31,
+															"name": "square",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "The square that is being dragged."
+																	}
+																]
+															},
+															"type": {
+																"type": "reference",
+																"target": 64,
+																"name": "SquareType",
+																"package": "@ammar-ahmed22/react-chess"
+															}
+														},
+														{
+															"id": 32,
+															"name": "ev",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "The drag event for the piece image that is being dragged."
+																	}
+																]
+															},
+															"type": {
+																"type": "reference",
+																"target": {
+																	"sourceFileName": "node_modules/@types/react/index.d.ts",
+																	"qualifiedName": "React.DragEvent"
+																},
+																"typeArguments": [
+																	{
+																		"type": "reference",
+																		"target": {
+																			"sourceFileName": "node_modules/typescript/lib/lib.dom.d.ts",
+																			"qualifiedName": "HTMLImageElement"
+																		},
+																		"name": "HTMLImageElement",
+																		"package": "typescript"
+																	}
+																],
+																"name": "React.DragEvent",
+																"package": "@types/react"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									}
+								},
+								{
+									"id": 33,
+									"name": "onSquareDrop",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Callback function that is called when a piece is dropped over a square"
+											}
+										],
+										"blockTags": [
+											{
+												"tag": "@param",
+												"name": "from",
+												"content": [
+													{
+														"kind": "text",
+														"text": "The square that the piece is being dragged from"
+													}
+												]
+											},
+											{
+												"tag": "@param",
+												"name": "on",
+												"content": [
+													{
+														"kind": "text",
+														"text": "The square that the piece is being dropped on"
+													}
+												]
+											},
+											{
+												"tag": "@param",
+												"name": "ev",
+												"content": [
+													{
+														"kind": "text",
+														"text": "The drag event for the square that is being dropped on."
+													}
+												]
+											},
+											{
+												"tag": "@returns",
+												"content": []
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+											"line": 82,
+											"character": 2,
+											"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L82"
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 34,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+													"line": 82,
+													"character": 17,
+													"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L82"
+												}
+											],
+											"signatures": [
+												{
+													"id": 35,
+													"name": "__type",
+													"variant": "signature",
+													"kind": 4096,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "Callback function that is called when a piece is dropped over a square"
+															}
+														],
+														"blockTags": [
+															{
+																"tag": "@returns",
+																"content": []
+															}
+														]
+													},
+													"parameters": [
+														{
+															"id": 36,
+															"name": "from",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "The square that the piece is being dragged from"
+																	}
+																]
+															},
+															"type": {
+																"type": "reference",
+																"target": 64,
+																"name": "SquareType",
+																"package": "@ammar-ahmed22/react-chess"
+															}
+														},
+														{
+															"id": 37,
+															"name": "on",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "The square that the piece is being dropped on"
+																	}
+																]
+															},
+															"type": {
+																"type": "reference",
+																"target": 64,
+																"name": "SquareType",
+																"package": "@ammar-ahmed22/react-chess"
+															}
+														},
+														{
+															"id": 38,
+															"name": "ev",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"comment": {
+																"summary": [
+																	{
+																		"kind": "text",
+																		"text": "The drag event for the square that is being dropped on."
+																	}
+																]
+															},
+															"type": {
+																"type": "reference",
+																"target": {
+																	"sourceFileName": "node_modules/@types/react/index.d.ts",
+																	"qualifiedName": "React.DragEvent"
+																},
+																"typeArguments": [
+																	{
+																		"type": "reference",
+																		"target": {
+																			"sourceFileName": "node_modules/typescript/lib/lib.dom.d.ts",
+																			"qualifiedName": "HTMLDivElement"
+																		},
+																		"name": "HTMLDivElement",
+																		"package": "typescript"
+																	}
+																],
+																"name": "React.DragEvent",
+																"package": "@types/react"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									}
+								},
+								{
+									"id": 14,
+									"name": "pieceSet",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "The piece set (images) to use, provided are the "
+											},
+											{
+												"kind": "code",
+												"text": "`cases`"
+											},
+											{
+												"kind": "text",
+												"text": " and "
+											},
+											{
+												"kind": "code",
+												"text": "`neo`"
+											},
+											{
+												"kind": "text",
+												"text": " piece sets. Otherwise, provide a custom piece image map to use custom pieces."
+											}
+										],
+										"blockTags": [
+											{
+												"tag": "@default",
+												"content": [
+													{
+														"kind": "code",
+														"text": "```ts\n\"cases\"\n```"
+													}
+												]
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+											"line": 30,
+											"character": 2,
+											"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L30"
+										}
+									],
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "reference",
+												"target": {
+													"sourceFileName": "src/assets/index.ts",
+													"qualifiedName": "PieceSet"
+												},
+												"name": "PieceSet",
+												"package": "@ammar-ahmed22/react-chess"
+											},
+											{
+												"type": "reference",
+												"target": {
+													"sourceFileName": "src/assets/index.ts",
+													"qualifiedName": "PieceImageMap"
+												},
+												"name": "PieceImageMap",
+												"package": "@ammar-ahmed22/react-chess"
+											}
+										]
+									}
+								},
+								{
+									"id": 12,
+									"name": "position",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "The Chess position to render as a FEN (without metadata) string."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+											"line": 20,
+											"character": 2,
+											"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L20"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 17,
+									"name": "showCoordinates",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "If true, coordinates identifiers will be shown. Rank numbers will be shown on the left most file, file letters will be shown on the bottom most rank (irrespective of board orientation)."
+											}
+										],
+										"blockTags": [
+											{
+												"tag": "@default",
+												"content": [
+													{
+														"kind": "code",
+														"text": "```ts\nfalse\n```"
+													}
+												]
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+											"line": 45,
+											"character": 2,
+											"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L45"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									}
+								},
+								{
+									"id": 11,
+									"name": "size",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "The size of the board as a CSS string value or a number in pixels. Square sizes will be calculated accordingly"
+											}
+										],
+										"blockTags": [
+											{
+												"tag": "@default",
+												"content": [
+													{
+														"kind": "code",
+														"text": "```ts\n\"90vh\"\n```"
+													}
+												]
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+											"line": 16,
+											"character": 2,
+											"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L16"
+										}
+									],
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "number"
+											}
+										]
+									}
+								},
+								{
+									"id": 24,
+									"name": "squareDraggable",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "If false, cannot be dragged. If a function is passed, the result of the function will determine if that square can be dragged."
+											}
+										],
+										"blockTags": [
+											{
+												"tag": "@param",
+												"name": "square",
+												"content": [
+													{
+														"kind": "text",
+														"text": "If a function is passed, the square that will be dragged"
+													}
+												]
+											},
+											{
+												"tag": "@default",
+												"content": [
+													{
+														"kind": "code",
+														"text": "```ts\ntrue\n```"
+													}
+												]
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+											"line": 64,
+											"character": 2,
+											"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L64"
+										}
+									],
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "boolean"
+											},
+											{
+												"type": "reflection",
+												"declaration": {
+													"id": 25,
+													"name": "__type",
+													"variant": "declaration",
+													"kind": 65536,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+															"line": 64,
+															"character": 31,
+															"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L64"
+														}
+													],
+													"signatures": [
+														{
+															"id": 26,
+															"name": "__type",
+															"variant": "signature",
+															"kind": 4096,
+															"flags": {},
+															"parameters": [
+																{
+																	"id": 27,
+																	"name": "square",
+																	"variant": "param",
+																	"kind": 32768,
+																	"flags": {},
+																	"type": {
+																		"type": "reference",
+																		"target": 64,
+																		"name": "SquareType",
+																		"package": "@ammar-ahmed22/react-chess"
+																	}
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "boolean"
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								},
+								{
+									"id": 18,
+									"name": "validMoves",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "If provided, when clicking on a piece, shows valid moves"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+											"line": 49,
+											"character": 2,
+											"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L49"
+										}
+									],
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "reference",
+											"target": {
+												"sourceFileName": "node_modules/@ammar-ahmed22/chess-engine/dist/Chess/Chess.types.d.ts",
+												"qualifiedName": "HalfMove"
+											},
+											"name": "HalfMove",
+											"package": "@ammar-ahmed22/chess-engine"
+										}
+									}
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										15,
+										13,
+										16,
+										19,
+										20,
+										44,
+										49,
+										54,
+										59,
+										39,
+										28,
+										33,
+										14,
+										12,
+										17,
+										11,
+										24,
+										18
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+									"line": 11,
+									"character": 42,
+									"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L11"
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": 64,
+			"name": "SquareType",
+			"variant": "declaration",
+			"kind": 2097152,
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "src/hooks/useSquares.ts",
+					"line": 9,
+					"character": 12,
+					"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/hooks/useSquares.ts#L9"
+				}
+			],
+			"type": {
+				"type": "reflection",
+				"declaration": {
+					"id": 65,
+					"name": "__type",
+					"variant": "declaration",
+					"kind": 65536,
+					"flags": {},
+					"children": [
+						{
+							"id": 68,
+							"name": "algebraic",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/hooks/useSquares.ts",
+									"line": 12,
+									"character": 2,
+									"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/hooks/useSquares.ts#L12"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 66,
+							"name": "file",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/hooks/useSquares.ts",
+									"line": 10,
+									"character": 2,
+									"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/hooks/useSquares.ts#L10"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 69,
+							"name": "piece",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "src/hooks/useSquares.ts",
+									"line": 13,
+									"character": 2,
+									"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/hooks/useSquares.ts#L13"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 70,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"children": [
+										{
+											"id": 72,
+											"name": "color",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/hooks/useSquares.ts",
+													"line": 15,
+													"character": 4,
+													"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/hooks/useSquares.ts#L15"
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": {
+													"sourceFileName": "node_modules/@ammar-ahmed22/chess-engine/dist/Chess/Chess.types.d.ts",
+													"qualifiedName": "Color"
+												},
+												"name": "Color",
+												"package": "@ammar-ahmed22/chess-engine"
+											}
+										},
+										{
+											"id": 71,
+											"name": "type",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/hooks/useSquares.ts",
+													"line": 14,
+													"character": 4,
+													"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/hooks/useSquares.ts#L14"
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": {
+													"sourceFileName": "node_modules/@ammar-ahmed22/chess-engine/dist/Chess/Chess.types.d.ts",
+													"qualifiedName": "PieceType"
+												},
+												"name": "PieceType",
+												"package": "@ammar-ahmed22/chess-engine"
+											}
+										}
+									],
+									"groups": [
+										{
+											"title": "Properties",
+											"children": [
+												72,
+												71
+											]
+										}
+									],
+									"sources": [
+										{
+											"fileName": "src/hooks/useSquares.ts",
+											"line": 13,
+											"character": 10,
+											"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/hooks/useSquares.ts#L13"
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 67,
+							"name": "rank",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/hooks/useSquares.ts",
+									"line": 11,
+									"character": 2,
+									"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/hooks/useSquares.ts#L11"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								68,
+								66,
+								69,
+								67
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/hooks/useSquares.ts",
+							"line": 9,
+							"character": 25,
+							"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/hooks/useSquares.ts#L9"
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": 73,
+			"name": "useSquareOpts",
+			"variant": "declaration",
+			"kind": 2097152,
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "src/hooks/useSquares.ts",
+					"line": 19,
+					"character": 12,
+					"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/hooks/useSquares.ts#L19"
+				}
+			],
+			"type": {
+				"type": "reflection",
+				"declaration": {
+					"id": 74,
+					"name": "__type",
+					"variant": "declaration",
+					"kind": 65536,
+					"flags": {},
+					"children": [
+						{
+							"id": 76,
+							"name": "flip",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "src/hooks/useSquares.ts",
+									"line": 21,
+									"character": 2,
+									"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/hooks/useSquares.ts#L21"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 75,
+							"name": "position",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "src/hooks/useSquares.ts",
+									"line": 20,
+									"character": 2,
+									"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/hooks/useSquares.ts#L20"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								76,
+								75
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/hooks/useSquares.ts",
+							"line": 19,
+							"character": 28,
+							"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/hooks/useSquares.ts#L19"
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": 1,
+			"name": "ChessBoard",
+			"variant": "declaration",
+			"kind": 64,
+			"flags": {},
+			"children": [
+				{
+					"id": 6,
+					"name": "contextTypes",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true,
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [],
+						"blockTags": [
+							{
+								"tag": "@deprecated",
+								"content": [
+									{
+										"kind": "text",
+										"text": "Lets you specify which legacy context is consumed by\nthis component."
+									}
+								]
+							},
+							{
+								"tag": "@see",
+								"content": [
+									{
+										"kind": "inline-tag",
+										"tag": "@link",
+										"text": "Legacy React Docs",
+										"target": "https://legacy.reactjs.org/docs/legacy-context.html"
+									}
+								]
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/react/index.d.ts",
+							"line": 1073,
+							"character": 8
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"sourceFileName": "node_modules/@types/prop-types/index.d.ts",
+							"qualifiedName": "ValidationMap"
+						},
+						"typeArguments": [
+							{
+								"type": "intrinsic",
+								"name": "any"
+							}
+						],
+						"name": "ValidationMap",
+						"package": "@types/prop-types"
+					}
+				},
+				{
+					"id": 7,
+					"name": "defaultProps",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true,
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Used to define default values for the props accepted by\nthe component."
+							}
+						],
+						"blockTags": [
+							{
+								"tag": "@see",
+								"content": [
+									{
+										"kind": "inline-tag",
+										"tag": "@link",
+										"text": "React Docs",
+										"target": "https://react.dev/reference/react/Component#static-defaultprops"
+									}
+								]
+							},
+							{
+								"tag": "@example",
+								"content": [
+									{
+										"kind": "code",
+										"text": "```tsx\ntype Props = { name?: string }\n\nconst MyComponent: FC<Props> = (props) => {\n  return <div>{props.name}</div>\n}\n\nMyComponent.defaultProps = {\n  name: 'John Doe'\n}\n```"
+									}
+								]
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/react/index.d.ts",
+							"line": 1094,
+							"character": 8
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"sourceFileName": "node_modules/typescript/lib/lib.es5.d.ts",
+							"qualifiedName": "Partial"
+						},
+						"typeArguments": [
+							{
+								"type": "reference",
+								"target": 9,
+								"name": "ChessBoardProps",
+								"package": "@ammar-ahmed22/react-chess"
+							}
+						],
+						"name": "Partial",
+						"package": "typescript"
+					}
+				},
+				{
+					"id": 8,
+					"name": "displayName",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true,
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Used in debugging messages. You might want to set it\nexplicitly if you want to display a different name for\ndebugging purposes."
+							}
+						],
+						"blockTags": [
+							{
+								"tag": "@see",
+								"content": [
+									{
+										"kind": "inline-tag",
+										"tag": "@link",
+										"text": "Legacy React Docs",
+										"target": "https://legacy.reactjs.org/docs/react-component.html#displayname"
+									}
+								]
+							},
+							{
+								"tag": "@example",
+								"content": [
+									{
+										"kind": "code",
+										"text": "```tsx\n\nconst MyComponent: FC = () => {\n  return <div>Hello!</div>\n}\n\nMyComponent.displayName = 'MyAwesomeComponent'\n```"
+									}
+								]
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/react/index.d.ts",
+							"line": 1113,
+							"character": 8
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 5,
+					"name": "propTypes",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true,
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Used to declare the types of the props accepted by the\ncomponent. These types will be checked during rendering\nand in development only.\n\nWe recommend using TypeScript instead of checking prop\ntypes at runtime."
+							}
+						],
+						"blockTags": [
+							{
+								"tag": "@see",
+								"content": [
+									{
+										"kind": "inline-tag",
+										"tag": "@link",
+										"text": "React Docs",
+										"target": "https://react.dev/reference/react/Component#static-proptypes"
+									}
+								]
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/@types/react/index.d.ts",
+							"line": 1064,
+							"character": 8
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"sourceFileName": "node_modules/@types/react/index.d.ts",
+							"qualifiedName": "React.WeakValidationMap"
+						},
+						"typeArguments": [
+							{
+								"type": "reference",
+								"target": 9,
+								"name": "ChessBoardProps",
+								"package": "@ammar-ahmed22/react-chess"
+							}
+						],
+						"name": "WeakValidationMap",
+						"package": "@types/react",
+						"qualifiedName": "React.WeakValidationMap"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						6,
+						7,
+						8,
+						5
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+					"line": 144,
+					"character": 6,
+					"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L144"
+				}
+			],
+			"signatures": [
+				{
+					"id": 2,
+					"name": "ChessBoard",
+					"variant": "signature",
+					"kind": 4096,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/components/ChessBoard/ChessBoard.tsx",
+							"line": 144,
+							"character": 6,
+							"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/components/ChessBoard/ChessBoard.tsx#L144"
+						}
+					],
+					"parameters": [
+						{
+							"id": 3,
+							"name": "props",
+							"variant": "param",
+							"kind": 32768,
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"target": 9,
+								"name": "ChessBoardProps",
+								"package": "@ammar-ahmed22/react-chess"
+							}
+						},
+						{
+							"id": 4,
+							"name": "context",
+							"variant": "param",
+							"kind": 32768,
+							"flags": {
+								"isOptional": true
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"sourceFileName": "node_modules/@types/react/index.d.ts",
+							"qualifiedName": "React.ReactNode"
+						},
+						"name": "ReactNode",
+						"package": "@types/react",
+						"qualifiedName": "React.ReactNode"
+					}
+				}
+			]
+		},
+		{
+			"id": 77,
+			"name": "useSquares",
+			"variant": "declaration",
+			"kind": 64,
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "src/hooks/useSquares.ts",
+					"line": 24,
+					"character": 13,
+					"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/hooks/useSquares.ts#L24"
+				}
+			],
+			"signatures": [
+				{
+					"id": 78,
+					"name": "useSquares",
+					"variant": "signature",
+					"kind": 4096,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/hooks/useSquares.ts",
+							"line": 24,
+							"character": 26,
+							"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/hooks/useSquares.ts#L24"
+						}
+					],
+					"parameters": [
+						{
+							"id": 79,
+							"name": "opts",
+							"variant": "param",
+							"kind": 32768,
+							"flags": {
+								"isOptional": true
+							},
+							"type": {
+								"type": "reference",
+								"target": 73,
+								"name": "useSquareOpts",
+								"package": "@ammar-ahmed22/react-chess"
+							}
+						}
+					],
+					"type": {
+						"type": "tuple",
+						"elements": [
+							{
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"target": 64,
+									"name": "SquareType",
+									"package": "@ammar-ahmed22/react-chess"
+								}
+							},
+							{
+								"type": "reflection",
+								"declaration": {
+									"id": 80,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/hooks/useSquares.ts",
+											"line": 26,
+											"character": 18,
+											"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/hooks/useSquares.ts#L26"
+										}
+									],
+									"signatures": [
+										{
+											"id": 81,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/hooks/useSquares.ts",
+													"line": 26,
+													"character": 18,
+													"url": "https://github.com/ammar-ahmed22/react-chess/blob/109647f/src/hooks/useSquares.ts#L26"
+												}
+											],
+											"parameters": [
+												{
+													"id": 82,
+													"name": "opts",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"type": {
+														"type": "reference",
+														"target": 73,
+														"name": "useSquareOpts",
+														"package": "@ammar-ahmed22/react-chess"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "Type Aliases",
+			"children": [
+				9,
+				64,
+				73
+			]
+		},
+		{
+			"title": "Functions",
+			"children": [
+				1,
+				77
+			]
+		}
+	],
+	"packageName": "@ammar-ahmed22/react-chess",
+	"readme": [
+		{
+			"kind": "text",
+			"text": "<div align=\"center\">\n<h1>@ammar-ahmed22/react-chess</h1>\n<p>Custom built Chess UI components/hooks for React to be used with my custom built <a href=\"https://google.ca\">Chess engine.</a></p>\n</div>\n\n## What is this?\nI don't intend for many people to see this, however, if you do stumble across this, this library was created merely as a learning exercise for myself. There is already a more robust/complete Chess UI built for React called "
+		},
+		{
+			"kind": "code",
+			"text": "`react-chessboard`"
+		},
+		{
+			"kind": "text",
+			"text": ".\n\nI built this with two distinct learning goals:\n1. To learn how to create React component libraries\n2. To hone my React skills by building a complex UI such as a Chess board\n\nI mentioned in the description that it is meant to be used with my Chess engine, which is true; however, I tried to make the components/hooks as flexible as possible so that it could potentially be used by any Chess engines or to simply view Chess positions, etc. \n\n## Installation\n"
+		},
+		{
+			"kind": "code",
+			"text": "```sh\nnpm install --save @ammar-ahmed22/react-chess\n```"
+		},
+		{
+			"kind": "text",
+			"text": "\n\n## Features\n- *Responsive Board Size*: Squares and board height auto-update with one prop\n- *FEN Position*: Set the position of the board with a FEN string\n- *Board Orientation*: Flip the orientation of the board\n- *Custom Actions*: Various custom actions for each individual square are available with single callbacks (e.g onSquareClick)\n+ *UI Customization*: Change light/dark square colors, override move identifiers, etc.\n+ *Valid Move Identifiers*: Handles showing valid moves onClick when provided\n+ *Board Coordinate Identifiers*: Show coordinate identifiers\n\n## Usage\n### Render a Chess FEN position\n"
+		},
+		{
+			"kind": "code",
+			"text": "```typescript\nimport { ChessBoard } from \"@ammar-ahmed22/react-chess\";\nimport { Chess } from \"@ammar-ahmed22/chess-engine\";\n\nexport default function App() {\n  const chess = new Chess();\n  return (\n    <div>\n      <ChessBoard \n        position={chess.fen()} // starts off with the starting position\n      />\n    </div>\n  )\n}\n```"
+		},
+		{
+			"kind": "text",
+			"text": "\n\n## "
+		},
+		{
+			"kind": "code",
+			"text": "`ChessBoard`"
+		},
+		{
+			"kind": "text",
+			"text": " Props\n<!-- CHESSBOARD PROPS TABLE START -->\n| Prop | Type | Default | Description | \n| :--- | :--- | :------ | :---------- |\n| darkColor | <code>string</code> | "
+		},
+		{
+			"kind": "code",
+			"text": "`\"#b58863\"`"
+		},
+		{
+			"kind": "text",
+			"text": " | The color to use for dark squares. Must be a valid CSS color string (e.g. \"#fff\", \"rgb(255, 255, 255)\", etc.) <br/><br />N/A |\n| flipBoard | <code>boolean</code> | "
+		},
+		{
+			"kind": "code",
+			"text": "`false`"
+		},
+		{
+			"kind": "text",
+			"text": " | If true, board is flipped. <br/><br />N/A |\n| lightColor | <code>string</code> | "
+		},
+		{
+			"kind": "code",
+			"text": "`\"#f0d9b5\"`"
+		},
+		{
+			"kind": "text",
+			"text": " | The color to use for light squares. Must be a valid CSS color string (e.g. \"#fff\", \"rgb(255, 255, 255)\", etc.) <br/><br />N/A |\n| moveIdentifier | <code>React.ReactNode</code> | N/A | If provided, overrides the default move identifier <br/><br />N/A |\n| onSquareClick | <code>(square: SquareType) => void</code> | N/A | Callback function when a square is clicked <br/><br />"
+		},
+		{
+			"kind": "code",
+			"text": "`@param square`"
+		},
+		{
+			"kind": "text",
+			"text": " - The square that is being clicked |\n| onSquareDrag | <code>(square: SquareType, ev: React.DragEvent&lt;HTMLImageElement&gt;) => void</code> | N/A | Callback function that is called while a piece is being dragged. <br/><br />"
+		},
+		{
+			"kind": "code",
+			"text": "`@param square`"
+		},
+		{
+			"kind": "text",
+			"text": " - The square that is being dragged<br />"
+		},
+		{
+			"kind": "code",
+			"text": "`@param ev`"
+		},
+		{
+			"kind": "text",
+			"text": " - The drag event for the piece image being dragged. |\n| onSquareDragEnd | <code>(square: SquareType, ev: React.DragEvent&lt;HTMLImageElement&gt;) => void</code> | N/A | Callback function that is called when a piece stops being dragged <br/><br />"
+		},
+		{
+			"kind": "code",
+			"text": "`@param square`"
+		},
+		{
+			"kind": "text",
+			"text": " - The square that was being dragged<br />"
+		},
+		{
+			"kind": "code",
+			"text": "`@param ev`"
+		},
+		{
+			"kind": "text",
+			"text": " - The drag event for the piece image that was being dragged. |\n| onSquareDragEnter | <code>(square: SquareType, ev: React.DragEvent&lt;HTMLDivElement&gt;) => void</code> | N/A | Callback function that is called when a dragged piece enters a square <br/><br />"
+		},
+		{
+			"kind": "code",
+			"text": "`@param square`"
+		},
+		{
+			"kind": "text",
+			"text": " - The square that is being entered<br />"
+		},
+		{
+			"kind": "code",
+			"text": "`@param ev`"
+		},
+		{
+			"kind": "text",
+			"text": " - The drag event for the square that is being entered. |\n| onSquareDragLeave | <code>(square: SquareType, ev: React.DragEvent&lt;HTMLDivElement&gt;) => void</code> | N/A | Callback function that is called when a dragged piece leaves a square <br/><br />"
+		},
+		{
+			"kind": "code",
+			"text": "`@param square`"
+		},
+		{
+			"kind": "text",
+			"text": " - The square that is being left.<br />"
+		},
+		{
+			"kind": "code",
+			"text": "`@param ev`"
+		},
+		{
+			"kind": "text",
+			"text": " - The drag event for the square that is being left. |\n| onSquareDragOver | <code>(square: SquareType, ev: React.DragEvent&lt;HTMLDivElement&gt;) => boolean</code> | N/A | Callback function that is called when a piece is dragged over a square.<br />If the function returns true, the drop is allowed, otherwise it is not. <br/><br />"
+		},
+		{
+			"kind": "code",
+			"text": "`@param square`"
+		},
+		{
+			"kind": "text",
+			"text": " - The square that the piece is being dragged over.<br />"
+		},
+		{
+			"kind": "code",
+			"text": "`@param ev`"
+		},
+		{
+			"kind": "text",
+			"text": " - The drag event for the square that is being dragged over. |\n| onSquareDragStart | <code>(square: SquareType, ev: React.DragEvent&lt;HTMLImageElement&gt;) => void</code> | N/A | Callback function that is called when a piece is starting to be dragged <br/><br />"
+		},
+		{
+			"kind": "code",
+			"text": "`@param square`"
+		},
+		{
+			"kind": "text",
+			"text": " - The square that is being dragged.<br />"
+		},
+		{
+			"kind": "code",
+			"text": "`@param ev`"
+		},
+		{
+			"kind": "text",
+			"text": " - The drag event for the piece image that is being dragged. |\n| onSquareDrop | <code>(from: SquareType, on: SquareType, ev: React.DragEvent&lt;HTMLDivElement&gt;) => void</code> | N/A | Callback function that is called when a piece is dropped over a square <br/><br />"
+		},
+		{
+			"kind": "code",
+			"text": "`@param from`"
+		},
+		{
+			"kind": "text",
+			"text": " - The square that the piece is being dragged from<br />"
+		},
+		{
+			"kind": "code",
+			"text": "`@param on`"
+		},
+		{
+			"kind": "text",
+			"text": " - The square that the piece is being dropped on<br />"
+		},
+		{
+			"kind": "code",
+			"text": "`@param ev`"
+		},
+		{
+			"kind": "text",
+			"text": " - The drag event for the square that is being dropped on. |\n| pieceSet | <code>PieceSet &#124; PieceImageMap</code> | "
+		},
+		{
+			"kind": "code",
+			"text": "`\"cases\"`"
+		},
+		{
+			"kind": "text",
+			"text": " | The piece set (images) to use, provided are the "
+		},
+		{
+			"kind": "code",
+			"text": "`cases`"
+		},
+		{
+			"kind": "text",
+			"text": " and "
+		},
+		{
+			"kind": "code",
+			"text": "`neo`"
+		},
+		{
+			"kind": "text",
+			"text": " piece sets. Otherwise, provide a custom piece image map to use custom pieces. <br/><br />N/A |\n| position | <code>string</code> | N/A | The Chess position to render as a FEN (without metadata) string. <br/><br />N/A |\n| showCoordinates | <code>boolean</code> | "
+		},
+		{
+			"kind": "code",
+			"text": "`false`"
+		},
+		{
+			"kind": "text",
+			"text": " | If true, coordinates identifiers will be shown. Rank numbers will be shown on the left most file, file letters will be shown on the bottom most rank (irrespective of board orientation). <br/><br />N/A |\n| size | <code>string &#124; number</code> | "
+		},
+		{
+			"kind": "code",
+			"text": "`\"90vh\"`"
+		},
+		{
+			"kind": "text",
+			"text": " | The size of the board as a CSS string value or a number in pixels. Square sizes will be calculated accordingly <br/><br />N/A |\n| squareDraggable | <code>boolean &#124; (square: SquareType) => boolean</code> | "
+		},
+		{
+			"kind": "code",
+			"text": "`true`"
+		},
+		{
+			"kind": "text",
+			"text": " | If false, cannot be dragged. If a function is passed, the result of the function will determine if that square can be dragged. <br/><br />"
+		},
+		{
+			"kind": "code",
+			"text": "`@param square`"
+		},
+		{
+			"kind": "text",
+			"text": " - If a function is passed, the square that will be dragged |\n| validMoves | <code>[HalfMove](https://github.com/ammar-ahmed22/chess-engine)[]</code> | N/A | If provided, when clicking on a piece, shows valid moves <br/><br />N/A |\n<!-- CHESSBOARD PROPS TABLE END -->\n\n\n## License\n[MIT](./LICENSE)"
+		}
+	],
+	"symbolIdMap": {
+		"0": {
+			"sourceFileName": "src/index.ts",
+			"qualifiedName": ""
+		},
+		"1": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "ChessBoard"
+		},
+		"2": {
+			"sourceFileName": "node_modules/@types/react/index.d.ts",
+			"qualifiedName": "ChessBoard"
+		},
+		"3": {
+			"sourceFileName": "node_modules/@types/react/index.d.ts",
+			"qualifiedName": "props"
+		},
+		"4": {
+			"sourceFileName": "node_modules/@types/react/index.d.ts",
+			"qualifiedName": "context"
+		},
+		"5": {
+			"sourceFileName": "node_modules/@types/react/index.d.ts",
+			"qualifiedName": "React.FunctionComponent.propTypes"
+		},
+		"6": {
+			"sourceFileName": "node_modules/@types/react/index.d.ts",
+			"qualifiedName": "React.FunctionComponent.contextTypes"
+		},
+		"7": {
+			"sourceFileName": "node_modules/@types/react/index.d.ts",
+			"qualifiedName": "React.FunctionComponent.defaultProps"
+		},
+		"8": {
+			"sourceFileName": "node_modules/@types/react/index.d.ts",
+			"qualifiedName": "React.FunctionComponent.displayName"
+		},
+		"9": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "ChessBoardProps"
+		},
+		"10": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type"
+		},
+		"11": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type.size"
+		},
+		"12": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type.position"
+		},
+		"13": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type.flipBoard"
+		},
+		"14": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type.pieceSet"
+		},
+		"15": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type.darkColor"
+		},
+		"16": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type.lightColor"
+		},
+		"17": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type.showCoordinates"
+		},
+		"18": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type.validMoves"
+		},
+		"19": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type.moveIdentifier"
+		},
+		"20": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type.onSquareClick"
+		},
+		"21": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type"
+		},
+		"22": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type"
+		},
+		"23": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "square"
+		},
+		"24": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type.squareDraggable"
+		},
+		"25": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type"
+		},
+		"26": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type"
+		},
+		"27": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "square"
+		},
+		"28": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type.onSquareDragStart"
+		},
+		"29": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type"
+		},
+		"30": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type"
+		},
+		"31": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "square"
+		},
+		"32": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "ev"
+		},
+		"33": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type.onSquareDrop"
+		},
+		"34": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type"
+		},
+		"35": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type"
+		},
+		"36": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "from"
+		},
+		"37": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "on"
+		},
+		"38": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "ev"
+		},
+		"39": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type.onSquareDragOver"
+		},
+		"40": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type"
+		},
+		"41": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type"
+		},
+		"42": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "square"
+		},
+		"43": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "ev"
+		},
+		"44": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type.onSquareDrag"
+		},
+		"45": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type"
+		},
+		"46": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type"
+		},
+		"47": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "square"
+		},
+		"48": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "ev"
+		},
+		"49": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type.onSquareDragEnd"
+		},
+		"50": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type"
+		},
+		"51": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type"
+		},
+		"52": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "square"
+		},
+		"53": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "ev"
+		},
+		"54": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type.onSquareDragEnter"
+		},
+		"55": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type"
+		},
+		"56": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type"
+		},
+		"57": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "square"
+		},
+		"58": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "ev"
+		},
+		"59": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type.onSquareDragLeave"
+		},
+		"60": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type"
+		},
+		"61": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "__type"
+		},
+		"62": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "square"
+		},
+		"63": {
+			"sourceFileName": "src/components/ChessBoard/ChessBoard.tsx",
+			"qualifiedName": "ev"
+		},
+		"64": {
+			"sourceFileName": "src/hooks/useSquares.ts",
+			"qualifiedName": "SquareType"
+		},
+		"65": {
+			"sourceFileName": "src/hooks/useSquares.ts",
+			"qualifiedName": "__type"
+		},
+		"66": {
+			"sourceFileName": "src/hooks/useSquares.ts",
+			"qualifiedName": "__type.file"
+		},
+		"67": {
+			"sourceFileName": "src/hooks/useSquares.ts",
+			"qualifiedName": "__type.rank"
+		},
+		"68": {
+			"sourceFileName": "src/hooks/useSquares.ts",
+			"qualifiedName": "__type.algebraic"
+		},
+		"69": {
+			"sourceFileName": "src/hooks/useSquares.ts",
+			"qualifiedName": "__type.piece"
+		},
+		"70": {
+			"sourceFileName": "src/hooks/useSquares.ts",
+			"qualifiedName": "__type"
+		},
+		"71": {
+			"sourceFileName": "src/hooks/useSquares.ts",
+			"qualifiedName": "__type.type"
+		},
+		"72": {
+			"sourceFileName": "src/hooks/useSquares.ts",
+			"qualifiedName": "__type.color"
+		},
+		"73": {
+			"sourceFileName": "src/hooks/useSquares.ts",
+			"qualifiedName": "useSquareOpts"
+		},
+		"74": {
+			"sourceFileName": "src/hooks/useSquares.ts",
+			"qualifiedName": "__type"
+		},
+		"75": {
+			"sourceFileName": "src/hooks/useSquares.ts",
+			"qualifiedName": "__type.position"
+		},
+		"76": {
+			"sourceFileName": "src/hooks/useSquares.ts",
+			"qualifiedName": "__type.flip"
+		},
+		"77": {
+			"sourceFileName": "src/hooks/useSquares.ts",
+			"qualifiedName": "useSquares"
+		},
+		"78": {
+			"sourceFileName": "src/hooks/useSquares.ts",
+			"qualifiedName": "useSquares"
+		},
+		"79": {
+			"sourceFileName": "src/hooks/useSquares.ts",
+			"qualifiedName": "opts"
+		},
+		"80": {
+			"sourceFileName": "src/hooks/useSquares.ts",
+			"qualifiedName": "__type"
+		},
+		"81": {
+			"sourceFileName": "src/hooks/useSquares.ts",
+			"qualifiedName": "__type"
+		},
+		"82": {
+			"sourceFileName": "src/hooks/useSquares.ts",
+			"qualifiedName": "opts"
+		}
+	}
+}
