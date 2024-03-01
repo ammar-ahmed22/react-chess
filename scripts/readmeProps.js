@@ -35,7 +35,6 @@ const extractFunctionSignature = (signature) => {
       type: extractTypesInfo(p.type)
     }
   })
-  console.log(`(${parameters.map(p => `${p.name}: ${p.type}`).join(", ")}) => ${returnType}`)
   return `(${parameters.map(p => `${p.name}: ${p.type}`).join(", ")}) => ${returnType}`
 }
 
@@ -136,6 +135,15 @@ async function main() {
     const docs = readJSON(jsonPath);
     const chessboardProps = docs.children.find((obj) => obj.name === "ChessBoardProps").type.types[1].declaration.children;
     const docsInfo = extractDocsInfo(chessboardProps)
+    docsInfo.sort((a, b) => {
+      if (a.default === "N/A" && b.default === "N/A") {
+        return 0;
+      } else if (a.default !== "N/A" && b.default === "N/A") {
+        return -1;
+      } else {
+        return 1;
+      }
+    })
     const genTable = createReadmeTable(docsInfo);
     const readmePath = path.join(ROOT, "./README.md")
     const readme = readFile(readmePath)
