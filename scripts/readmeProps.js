@@ -35,6 +35,7 @@ const extractFunctionSignature = (signature) => {
       type: extractTypesInfo(p.type)
     }
   })
+
   return `(${parameters.map(p => `${p.name}: ${p.type}`).join(", ")}) => ${returnType}`
 }
 
@@ -129,7 +130,7 @@ async function main() {
 
   const project = await app.convert();
   if (project) {
-    const outputDir = path.join(ROOT, "./docs");
+    const outputDir = path.join(ROOT, "./tsdocs");
     const jsonPath = path.resolve(outputDir, "docs.json");
     await app.generateJson(project, jsonPath)
     const docs = readJSON(jsonPath);

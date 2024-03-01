@@ -1,4 +1,5 @@
 node_modules
 dist
 
-yarn-error.lg
+yarn-error.log
+tsdocs
