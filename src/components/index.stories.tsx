@@ -1,5 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ChessBoard, ChessBoardProps, PromotionData, PromotePieceType } from "./ChessBoard";
+import {
+  ChessBoard,
+  ChessBoardProps,
+  PromotionData,
+  PromotePieceType,
+} from "./ChessBoard";
 import {
   Chess,
   HalfMove,
@@ -29,8 +34,11 @@ const Game: React.FC<Omit<ChessBoardProps, UsedChessBoardProps>> = (
   const [validMoves, setValidMoves] = useState(chess.validMoves());
   const [fromID, setFromID] = useState<SquareID | null>(null);
   const [toID, setToID] = useState<SquareID | null>(null);
-  const [promotion, setPromotion] = useState<PromotionData | undefined>()
-  const [promotedPiece, setPromotedPiece] = useState<PromotePieceType>();
+  const [promotion, setPromotion] = useState<
+    PromotionData | undefined
+  >();
+  const [promotedPiece, setPromotedPiece] =
+    useState<PromotePieceType>();
 
   const executeMove = (move: HalfMove) => {
     const result = chess.execute(move);
@@ -41,7 +49,7 @@ const Game: React.FC<Omit<ChessBoardProps, UsedChessBoardProps>> = (
       setToID(null);
       setChess(chess.clone());
     }
-  }
+  };
 
   useEffect(() => {
     if (fromID && toID) {
@@ -61,10 +69,10 @@ const Game: React.FC<Omit<ChessBoardProps, UsedChessBoardProps>> = (
         }
         // promotedPiece is set by ChessBoard
         if (promotedPiece) {
-          const pMove = executeMoves.find(m => {
+          const pMove = executeMoves.find((m) => {
             // move.promotion is a FEN character representing the piece. Potentially will change later on.
             if (promotedPiece === "knight") {
-              return m.promotion?.toLowerCase() === "n"
+              return m.promotion?.toLowerCase() === "n";
             } else {
               return m.promotion?.toLowerCase() === promotedPiece[0];
             }
@@ -76,7 +84,7 @@ const Game: React.FC<Omit<ChessBoardProps, UsedChessBoardProps>> = (
           }
         }
       } else {
-        executeMove(executeMoves[0] as HalfMove)
+        executeMove(executeMoves[0] as HalfMove);
       }
     }
   }, [fromID, toID, promotedPiece]);
@@ -90,9 +98,9 @@ const Game: React.FC<Omit<ChessBoardProps, UsedChessBoardProps>> = (
         if (move) {
           executeMove(move);
         }
-      }, 1000)
+      }, 1000);
     }
-  }, [chess])
+  }, [chess]);
 
   return (
     <ChessBoard

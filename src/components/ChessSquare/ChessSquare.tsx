@@ -1,6 +1,10 @@
 import React, { useRef } from "react";
 import type { SquareType } from "../../hooks/useSquares";
-import { SquareID, PieceType, Color } from "@ammar-ahmed22/chess-engine";
+import {
+  SquareID,
+  PieceType,
+  Color,
+} from "@ammar-ahmed22/chess-engine";
 import PieceMap from "../../assets";
 import type { PieceSet, PieceImageMap } from "../../assets";
 import type { PromotePieceType } from "../ChessBoard";
@@ -9,7 +13,7 @@ import {
   PieceImage,
   Coordinate,
   Identifier,
-  PromotionModal
+  PromotionModal,
 } from "./ChessSquare.styles";
 
 type Overrides =
@@ -70,7 +74,9 @@ export type ChessSquareProps = SquareType &
     /**
      * React Set State function to set the selected promote piece when modal is shown
      */
-    setPromotedPiece?: React.Dispatch<React.SetStateAction<PromotePieceType | undefined>>
+    setPromotedPiece?: React.Dispatch<
+      React.SetStateAction<PromotePieceType | undefined>
+    >;
     /**
      * If false, dragged piece cannot be dropped in the square.
      * @default true
@@ -263,20 +269,29 @@ const ChessSquare: React.FC<ChessSquareProps> = ({
       {showPromotionModal && (
         <PromotionModal>
           {["queen", "rook", "knight", "bishop"].map((piece, idx) => {
-            const src = typeof pieceSet === "string" ? PieceMap[pieceSet][showPromotionModal][piece as PieceType] : pieceSet[showPromotionModal][piece as PieceType];
+            const src =
+              typeof pieceSet === "string"
+                ? PieceMap[pieceSet][showPromotionModal][
+                    piece as PieceType
+                  ]
+                : pieceSet[showPromotionModal][piece as PieceType];
             return (
-              <PieceImage 
+              <PieceImage
                 src={src}
                 size="100%"
                 style={{
-                  backgroundColor: (idx === 1 || idx === 2) ? `${darkColor}` : `${lightColor}`,
+                  backgroundColor:
+                    idx === 1 || idx === 2
+                      ? `${darkColor}`
+                      : `${lightColor}`,
                 }}
                 onClick={() => {
                   console.log("selected:", piece);
-                  if (setPromotedPiece) setPromotedPiece(piece as PromotePieceType);
+                  if (setPromotedPiece)
+                    setPromotedPiece(piece as PromotePieceType);
                 }}
               />
-            )
+            );
           })}
         </PromotionModal>
       )}

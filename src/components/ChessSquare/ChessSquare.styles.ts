@@ -63,7 +63,6 @@ export const PromotionModal = styled.div`
   z-index: 3;
   width: 150%;
   height: 150%;
-  
 
   img {
     opacity: 0.8;
@@ -75,4 +74,4 @@ export const PromotionModal = styled.div`
     opacity: 1;
     transform: scale(1);
   }
-`
+`;

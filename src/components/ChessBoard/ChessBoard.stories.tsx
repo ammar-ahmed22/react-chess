@@ -34,5 +34,8 @@ export const ValidMoves: Story = {
 };
 
 export const PiecePromotion: Story = {
-  args: { position: "rnbqkb1P/pppp3p/7n/8/8/8/PPPPP1PP/RNBQKBNR", showPromotionModal: { id: "h8", color: "white" } }
-}
+  args: {
+    position: "rnbqkb1P/pppp3p/7n/8/8/8/PPPPP1PP/RNBQKBNR",
+    showPromotionModal: { id: "h8", color: "white" },
+  },
+};

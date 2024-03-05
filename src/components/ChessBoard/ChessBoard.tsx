@@ -3,12 +3,17 @@ import { ChessSquare } from "../ChessSquare";
 import { BoardContainer } from "./ChessBoard.styles";
 import { SquareType, useSquares } from "../../hooks";
 import type { PieceSet, PieceImageMap } from "../../assets";
-import type { HalfMove, SquareIDType, PieceType, Color } from "@ammar-ahmed22/chess-engine";
+import type {
+  HalfMove,
+  SquareIDType,
+  PieceType,
+  Color,
+} from "@ammar-ahmed22/chess-engine";
 import { SquareID } from "@ammar-ahmed22/chess-engine";
 
 type HTMLProps = React.HTMLAttributes<HTMLDivElement>;
 export type PromotePieceType = Omit<PieceType, "pawn" | "king">;
-export type PromotionData = { id: SquareIDType, color: Color };
+export type PromotionData = { id: SquareIDType; color: Color };
 
 export type ChessBoardProps = HTMLProps & {
   /**
@@ -60,7 +65,9 @@ export type ChessBoardProps = HTMLProps & {
   /**
    * React Set State function to set the selected promote piece when modal is shown
    */
-  setPromotedPiece?: React.Dispatch<React.SetStateAction<PromotePieceType | undefined>>
+  setPromotedPiece?: React.Dispatch<
+    React.SetStateAction<PromotePieceType | undefined>
+  >;
   /**
    * Callback function when a square is clicked
    * @param square The square that is being clicked
@@ -242,10 +249,19 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
 
     if (showPromotionModal) {
       const id = SquareID.fromSquareIDType(showPromotionModal.id);
-      if (id.algebraic === square.algebraic) promotionModal = showPromotionModal.color;
+      if (id.algebraic === square.algebraic)
+        promotionModal = showPromotionModal.color;
     }
 
-    return { showRank, showFile, showMove, draggable, droppable, showPromotionModal: promotionModal, setPromotedPiece };
+    return {
+      showRank,
+      showFile,
+      showMove,
+      draggable,
+      droppable,
+      showPromotionModal: promotionModal,
+      setPromotedPiece,
+    };
   };
 
   const handleClick = (square: SquareType) => {
@@ -254,7 +270,11 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
   };
 
   return (
-    <BoardContainer size={size} blackOut={showPromotionModal && true} {...others}>
+    <BoardContainer
+      size={size}
+      blackOut={showPromotionModal && true}
+      {...others}
+    >
       {squares.map((square) => {
         return (
           <ChessSquare

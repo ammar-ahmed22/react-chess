@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
-export const BoardContainer = styled.div<{ size: string | number, blackOut?: boolean }>`
+export const BoardContainer = styled.div<{
+  size: string | number;
+  blackOut?: boolean;
+}>`
   width: ${(props) => props.size};
   height: ${(props) => props.size};
   display: grid;
@@ -14,9 +17,9 @@ export const BoardContainer = styled.div<{ size: string | number, blackOut?: boo
     left: 0;
     width: ${({ size }) => size};
     height: ${({ size }) => size};
-    content: '';
+    content: "";
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 2;
-    display: ${({ blackOut }) => blackOut ? "block" : "none"}
+    display: ${({ blackOut }) => (blackOut ? "block" : "none")};
   }
 `;
