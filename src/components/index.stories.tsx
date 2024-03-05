@@ -57,68 +57,45 @@ const Game: React.FC<Omit<ChessBoardProps, UsedChessBoardProps>> = (
       position={fen}
       flipBoard={chess.colorToMove() === "black"}
       validMoves={validMoves}
-      // onSquareClick={(square) => {
-      //   for (let move of validMoves) {
-      //     const from = SquareID.fromSquareIDType(move.from);
-      //     const to = SquareID.fromSquareIDType(move.to);
-      //     if (from.algebraic === square.algebraic) {
-      //       setFromID(from);
-      //     }
-      //     if (
-      //       fromID?.algebraic === from.algebraic &&
-      //       to.algebraic === square.algebraic
-      //     ) {
-      //       setToID(to);
-      //     }
-      //   }
-      // }}
-      // squareDraggable={(square) => {
-      //   let hasValid = false;
-      //   for (let move of validMoves) {
-      //     const from = SquareID.fromSquareIDType(move.from);
-      //     if (square.algebraic === from.algebraic) {
-      //       hasValid = true;
-      //     }
-      //   }
-      //   return hasValid;
-      // }}
-      // onSquareDragStart={(square) => {
-      //   for (let move of validMoves) {
-      //     const from = SquareID.fromSquareIDType(move.from);
-      //     if (from.algebraic === square.algebraic) {
-      //       setFromID(from);
-      //     }
-      //   }
-      // }}
-      // onSquareDragOver={(square) => {
-      //   if (!fromID) return false;
-      //   for (let move of validMoves) {
-      //     const to = SquareID.fromSquareIDType(move.to);
-      //     const from = SquareID.fromSquareIDType(move.from);
-      //     if (
-      //       fromID.algebraic === from.algebraic &&
-      //       to.algebraic === square.algebraic
-      //     )
-      //       return true;
-      //   }
-      //   return false;
-      // }}
-      // onSquareDrop={(_from, to, ev) => {
-      //   ev.currentTarget.style.border = "unset";
-      //   setToID(SquareID.fromSquareIDType(to.algebraic));
-      // }}
-      // onSquareDrag={(_square, ev) => {
-      //   ev.currentTarget.style.opacity = "0";
-      // }}
-      // onSquareDragEnd={(_square, ev) => {
-      //   ev.currentTarget.style.opacity = "1";
-      // }}
-      // onSquareDragEnter={(_square, ev) => {
-      //   ev.currentTarget.style.border = "solid 3px #fff";
-      // }}
-      // onSquareDragLeave={(_square, ev) => {
-      //   ev.currentTarget.style.border = "unset";
-      // }}
+      onSquareClick={(square) => {
+        for (let move of validMoves) {
+          const from = SquareID.fromSquareIDType(move.from);
+          const to = SquareID.fromSquareIDType(move.to);
+          if (from.algebraic === square.algebraic) {
+            setFromID(from);
+          }
+          if (
+            fromID?.algebraic === from.algebraic &&
+            to.algebraic === square.algebraic
+          ) {
+            setToID(to);
+          }
+        }
+      }}
+      onSquareDragStart={(square) => {
+        for (let move of validMoves) {
+          const from = SquareID.fromSquareIDType(move.from);
+          if (from.algebraic === square.algebraic) {
+            setFromID(from);
+          }
+        }
+      }}
+      onSquareDrop={(_from, to, ev) => {
+        ev.currentTarget.style.border = "unset";
+        setToID(SquareID.fromSquareIDType(to.algebraic));
+      }}
+      onSquareDrag={(_square, ev) => {
+        ev.currentTarget.style.opacity = "0";
+      }}
+      onSquareDragEnd={(_square, ev) => {
+        ev.currentTarget.style.opacity = "1";
+      }}
+      onSquareDragEnter={(_square, ev) => {
+        ev.currentTarget.style.border = "solid 3px #fff";
+      }}
+      onSquareDragLeave={(_square, ev) => {
+        ev.currentTarget.style.border = "unset";
+      }}
     />
   );
 };
