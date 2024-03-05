@@ -1,13 +1,15 @@
 import React, { useRef } from "react";
 import type { SquareType } from "../../hooks/useSquares";
-import { SquareID } from "@ammar-ahmed22/chess-engine";
+import { SquareID, PieceType, Color } from "@ammar-ahmed22/chess-engine";
 import PieceMap from "../../assets";
 import type { PieceSet, PieceImageMap } from "../../assets";
+import type { PromotePieceType } from "../ChessBoard";
 import {
   Square,
   PieceImage,
   Coordinate,
   Identifier,
+  PromotionModal
 } from "./ChessSquare.styles";
 
 type Overrides =
@@ -61,6 +63,14 @@ export type ChessSquareProps = SquareType &
      * If provided, overrides the default move identifier
      */
     moveIdentifier?: React.ReactNode;
+    /**
+     * If provided, shows the piece promotion modal in the provided color
+     */
+    showPromotionModal?: Color;
+    /**
+     * React Set State function to set the selected promote piece when modal is shown
+     */
+    setPromotedPiece?: React.Dispatch<React.SetStateAction<PromotePieceType | undefined>>
     /**
      * If false, dragged piece cannot be dropped in the square.
      * @default true
@@ -171,6 +181,8 @@ const ChessSquare: React.FC<ChessSquareProps> = ({
   onDragEnd,
   onDragEnter,
   onDragLeave,
+  showPromotionModal,
+  setPromotedPiece,
   ...others
 }) => {
   const id = new SquareID(file, rank);
@@ -206,7 +218,7 @@ const ChessSquare: React.FC<ChessSquareProps> = ({
       }}
       {...others}
     >
-      {piece && (
+      {piece && !showPromotionModal && (
         <PieceImage
           ref={imageRef}
           src={pieceImage}
@@ -248,6 +260,26 @@ const ChessSquare: React.FC<ChessSquareProps> = ({
         </Coordinate>
       )}
       {showMove && <Identifier />}
+      {showPromotionModal && (
+        <PromotionModal>
+          {["queen", "rook", "knight", "bishop"].map((piece, idx) => {
+            const src = typeof pieceSet === "string" ? PieceMap[pieceSet][showPromotionModal][piece as PieceType] : pieceSet[showPromotionModal][piece as PieceType];
+            return (
+              <PieceImage 
+                src={src}
+                size="100%"
+                style={{
+                  backgroundColor: (idx === 1 || idx === 2) ? `${darkColor}` : `${lightColor}`,
+                }}
+                onClick={() => {
+                  console.log("selected:", piece);
+                  if (setPromotedPiece) setPromotedPiece(piece as PromotePieceType);
+                }}
+              />
+            )
+          })}
+        </PromotionModal>
+      )}
     </Square>
   );
 };

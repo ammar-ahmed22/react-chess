@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ChessBoard, ChessBoardProps } from "./ChessBoard";
+import { ChessBoard, ChessBoardProps, PromotionData, PromotePieceType } from "./ChessBoard";
 import {
   Chess,
   HalfMove,
@@ -29,10 +29,23 @@ const Game: React.FC<Omit<ChessBoardProps, UsedChessBoardProps>> = (
   const [validMoves, setValidMoves] = useState(chess.validMoves());
   const [fromID, setFromID] = useState<SquareID | null>(null);
   const [toID, setToID] = useState<SquareID | null>(null);
+  const [promotion, setPromotion] = useState<PromotionData | undefined>()
+  const [promotedPiece, setPromotedPiece] = useState<PromotePieceType>();
+
+  const executeMove = (move: HalfMove) => {
+    const result = chess.execute(move);
+    if (result) {
+      setFEN(chess.fen());
+      setValidMoves(chess.validMoves());
+      setFromID(null);
+      setToID(null);
+      setChess(chess.clone());
+    }
+  }
 
   useEffect(() => {
     if (fromID && toID) {
-      const [executeMove] = chess.validMoves().filter((move) => {
+      const executeMoves = chess.validMoves().filter((move) => {
         const from = SquareID.fromSquareIDType(move.from);
         const to = SquareID.fromSquareIDType(move.to);
         return (
@@ -40,16 +53,46 @@ const Game: React.FC<Omit<ChessBoardProps, UsedChessBoardProps>> = (
           to.algebraic === toID.algebraic
         );
       });
-      const result = chess.execute(executeMove as HalfMove);
-      if (result) {
-        setFEN(chess.fen());
-        setValidMoves(chess.validMoves());
-        setFromID(null);
-        setToID(null);
-        setChess(chess.clone());
+      // when piece promotion, 4 moves available to the same square.
+      if (executeMoves.length > 1) {
+        const [move] = executeMoves;
+        if (move && !promotion) {
+          setPromotion({ id: move.to, color: move.color });
+        }
+        // promotedPiece is set by ChessBoard
+        if (promotedPiece) {
+          const pMove = executeMoves.find(m => {
+            // move.promotion is a FEN character representing the piece. Potentially will change later on.
+            if (promotedPiece === "knight") {
+              return m.promotion?.toLowerCase() === "n"
+            } else {
+              return m.promotion?.toLowerCase() === promotedPiece[0];
+            }
+          });
+          if (pMove) {
+            executeMove(pMove);
+            setPromotedPiece(undefined);
+            setPromotion(undefined);
+          }
+        }
+      } else {
+        executeMove(executeMoves[0] as HalfMove)
       }
     }
-  }, [fromID, toID]);
+  }, [fromID, toID, promotedPiece]);
+
+  useEffect(() => {
+    // black moves are chosen at random after 1 second.
+    if (chess.colorToMove() === "black") {
+      setTimeout(() => {
+        const rndIdx = Math.floor(Math.random() * validMoves.length);
+        const move = validMoves[rndIdx];
+        if (move) {
+          executeMove(move);
+        }
+      }, 1000)
+    }
+  }, [chess])
 
   return (
     <ChessBoard
@@ -57,6 +100,8 @@ const Game: React.FC<Omit<ChessBoardProps, UsedChessBoardProps>> = (
       position={fen}
       flipBoard={chess.colorToMove() === "black"}
       validMoves={validMoves}
+      showPromotionModal={promotion}
+      setPromotedPiece={setPromotedPiece}
       onSquareClick={(square) => {
         for (let move of validMoves) {
           const from = SquareID.fromSquareIDType(move.from);
