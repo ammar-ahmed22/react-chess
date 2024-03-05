@@ -74,6 +74,7 @@ export type ChessBoardProps = HTMLProps & {
   ) => void;
   /**
    * Callback function that is called when a piece is dropped over a square
+   *
    * @param from The square that the piece is being dragged from
    * @param on The square that the piece is being dropped on
    * @param ev The drag event for the square that is being dropped on.
@@ -86,8 +87,7 @@ export type ChessBoardProps = HTMLProps & {
   ) => void;
   /**
    * Callback function that is called when a piece is dragged over a square.
-   * If the function returns true, the drop is allowed, otherwise it is not.
-   * 
+   *
    * @param square The square that the piece is being dragged over.
    * @param ev The drag event for the square that is being dragged over.
    * @returns
@@ -95,7 +95,7 @@ export type ChessBoardProps = HTMLProps & {
   onSquareDragOver?: (
     square: SquareType,
     ev: React.DragEvent<HTMLDivElement>,
-  ) => boolean;
+  ) => void;
   /**
    * Callback function that is called while a piece is being dragged.
    *
@@ -168,6 +168,7 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
   const [clickedSquare, setClickedSquare] = useState<SquareID | null>(
     null,
   );
+  const [dragging, setDragging] = useState<SquareID | null>(null);
   const [currentMoves, setCurrentMoves] = useState<HalfMove[]>([]);
 
   useEffect(() => {
@@ -188,6 +189,9 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
   const genShowProps = (square: SquareType) => {
     let showRank = false;
     let showFile = false;
+    let showMove = false;
+    let draggable = false;
+    let droppable = false;
     if (showCoordinates) {
       if (square.rank === (flipBoard ? 8 : 1)) {
         showFile = true;
@@ -196,12 +200,34 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
         showRank = true;
       }
     }
-    let showMove = false;
+
     for (let move of currentMoves) {
       const to = SquareID.fromSquareIDType(move.to);
       if (to.algebraic === square.algebraic) showMove = true;
     }
-    return { showRank, showFile, showMove };
+
+    if (validMoves) {
+      for (let move of validMoves) {
+        const from = SquareID.fromSquareIDType(move.from);
+        const to = SquareID.fromSquareIDType(move.to);
+        if (from.algebraic === square.algebraic) draggable = true;
+        if (dragging) {
+          if (
+            dragging.algebraic === from.algebraic &&
+            to.algebraic === square.algebraic
+          )
+            droppable = true;
+        }
+      }
+    }
+    if (squareDraggable !== undefined) {
+      draggable =
+        typeof squareDraggable === "boolean"
+          ? squareDraggable
+          : squareDraggable(square);
+    }
+
+    return { showRank, showFile, showMove, draggable, droppable };
   };
 
   const handleClick = (square: SquareType) => {
@@ -221,14 +247,22 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
             lightColor={lightColor}
             {...genShowProps(square)}
             onClick={() => handleClick(square)}
-            draggable={squareDraggable}
-            onDragStart={onSquareDragStart}
+            // draggable={squareDraggable}
+            onDragStart={(square, ev) => {
+              setDragging(
+                SquareID.fromSquareIDType(square.algebraic),
+              );
+              if (onSquareDragStart) onSquareDragStart(square, ev);
+            }}
             onDrop={onSquareDrop}
             onDragOver={onSquareDragOver}
             onDrag={onSquareDrag}
             onDragEnter={onSquareDragEnter}
             onDragLeave={onSquareDragLeave}
-            onDragEnd={onSquareDragEnd}
+            onDragEnd={(square, ev) => {
+              setDragging(null);
+              if (onSquareDragEnd) onSquareDragEnd(square, ev);
+            }}
             {...square}
           />
         );

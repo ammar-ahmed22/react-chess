@@ -72,16 +72,6 @@ const Game: React.FC<Omit<ChessBoardProps, UsedChessBoardProps>> = (
           }
         }
       }}
-      squareDraggable={(square) => {
-        let hasValid = false;
-        for (let move of validMoves) {
-          const from = SquareID.fromSquareIDType(move.from);
-          if (square.algebraic === from.algebraic) {
-            hasValid = true;
-          }
-        }
-        return hasValid;
-      }}
       onSquareDragStart={(square) => {
         for (let move of validMoves) {
           const from = SquareID.fromSquareIDType(move.from);
@@ -89,19 +79,6 @@ const Game: React.FC<Omit<ChessBoardProps, UsedChessBoardProps>> = (
             setFromID(from);
           }
         }
-      }}
-      onSquareDragOver={(square) => {
-        if (!fromID) return false;
-        for (let move of validMoves) {
-          const to = SquareID.fromSquareIDType(move.to);
-          const from = SquareID.fromSquareIDType(move.from);
-          if (
-            fromID.algebraic === from.algebraic &&
-            to.algebraic === square.algebraic
-          )
-            return true;
-        }
-        return false;
       }}
       onSquareDrop={(_from, to, ev) => {
         ev.currentTarget.style.border = "unset";
