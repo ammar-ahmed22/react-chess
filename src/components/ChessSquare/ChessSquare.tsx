@@ -62,11 +62,15 @@ export type ChessSquareProps = SquareType &
      */
     moveIdentifier?: React.ReactNode;
     /**
-     * If false, cannot be dragged
-     * @param square If a function is passed, the square that will be dragged
+     * If false, dragged piece cannot be dropped in the square.
      * @default true
      */
-    draggable?: boolean | ((square: SquareType) => boolean);
+    droppable?: boolean;
+    /**
+     * If false, cannot be dragged
+     * @default true
+     */
+    draggable?: boolean;
     /**
      * Callback function that is called when a piece is starting to be dragged
      * @param square The square that is being dragged.
@@ -99,7 +103,7 @@ export type ChessSquareProps = SquareType &
     onDragOver?: (
       square: SquareType,
       ev: React.DragEvent<HTMLDivElement>,
-    ) => boolean;
+    ) => void;
     /**
      * Callback function that is called while a piece is being dragged.
      *
@@ -159,6 +163,7 @@ const ChessSquare: React.FC<ChessSquareProps> = ({
   showMove,
   moveIdentifier,
   draggable = true,
+  droppable = true,
   onDragStart,
   onDrop,
   onDragOver,
@@ -180,12 +185,8 @@ const ChessSquare: React.FC<ChessSquareProps> = ({
       color={isDark ? lightColor : darkColor}
       onDragOver={(ev: React.DragEvent<HTMLDivElement>) => {
         ev.preventDefault();
-        if (onDragOver) {
-          const result = onDragOver(square, ev);
-          ev.dataTransfer.dropEffect = result ? "move" : "none";
-        } else {
-          ev.dataTransfer.dropEffect = "move";
-        }
+        ev.dataTransfer.dropEffect = droppable ? "move" : "none";
+        if (onDragOver) onDragOver(square, ev);
       }}
       onDrop={(ev: React.DragEvent<HTMLDivElement>) => {
         const data = JSON.parse(
@@ -205,11 +206,7 @@ const ChessSquare: React.FC<ChessSquareProps> = ({
         <PieceImage
           ref={imageRef}
           src={pieceImage}
-          draggable={
-            typeof draggable === "boolean"
-              ? draggable
-              : draggable(square)
-          }
+          draggable={draggable}
           onDragStart={(ev: React.DragEvent<HTMLImageElement>) => {
             ev.dataTransfer.setData(
               "text/plain",
@@ -219,8 +216,6 @@ const ChessSquare: React.FC<ChessSquareProps> = ({
             if (onDragStart) onDragStart(square, ev);
           }}
           onDrag={(ev: React.DragEvent<HTMLImageElement>) => {
-            // console.log("dragging");
-            // ev.currentTarget.style.opacity = "0";
             if (onDrag) onDrag(square, ev);
           }}
           onDragEnd={(ev: React.DragEvent<HTMLImageElement>) => {
