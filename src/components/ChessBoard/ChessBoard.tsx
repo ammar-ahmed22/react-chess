@@ -186,7 +186,7 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
     }
   }, [clickedSquare, validMoves]);
 
-  const genShowProps = (square: SquareType) => {
+  const squareProps = (square: SquareType) => {
     let showRank = false;
     let showFile = false;
     let showMove = false;
@@ -245,9 +245,7 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
             pieceSet={pieceSet}
             darkColor={darkColor}
             lightColor={lightColor}
-            {...genShowProps(square)}
             onClick={() => handleClick(square)}
-            // draggable={squareDraggable}
             onDragStart={(square, ev) => {
               setDragging(
                 SquareID.fromSquareIDType(square.algebraic),
@@ -263,6 +261,7 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
               setDragging(null);
               if (onSquareDragEnd) onSquareDragEnd(square, ev);
             }}
+            {...squareProps(square)}
             {...square}
           />
         );
