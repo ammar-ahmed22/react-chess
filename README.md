@@ -65,6 +65,8 @@ export default function App() {
 | onSquareDragStart | <code>(square: SquareType, ev: React.DragEvent&lt;HTMLImageElement&gt;) => void</code> | N/A | Callback function that is called when a piece is starting to be dragged <br/><br />`@param square` - The square that is being dragged.<br />`@param ev` - The drag event for the piece image that is being dragged. |
 | onSquareDrop | <code>(from: SquareType, on: SquareType, ev: React.DragEvent&lt;HTMLDivElement&gt;) => void</code> | N/A | Callback function that is called when a piece is dropped over a square <br/><br />`@param from` - The square that the piece is being dragged from<br />`@param on` - The square that the piece is being dropped on<br />`@param ev` - The drag event for the square that is being dropped on. |
 | position | <code>string</code> | N/A | The Chess position to render as a FEN (without metadata) string. |
+| setPromotedPiece | <code>React.Dispatch&lt;React.SetStateAction&lt;PromotePieceType &#124; undefined&gt;&gt;</code> | N/A | React Set State function to set the selected promote piece when modal is shown |
+| showPromotionModal | <code>PromotionData</code> | N/A | If provided, shows the piece promotion modal at the provided square. |
 | validMoves | <code>[HalfMove](https://github.com/ammar-ahmed22/chess-engine)[]</code> | N/A | If provided, when clicking on a piece, shows valid moves |
 <!-- CHESSBOARD PROPS TABLE END -->
 
