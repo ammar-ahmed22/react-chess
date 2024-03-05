@@ -18,9 +18,9 @@ export const Square = styled.div<{
   cursor: pointer;
 `;
 
-export const PieceImage = styled.img`
-  width: 80%;
-  height: 80%;
+export const PieceImage = styled.img<{ size?: string }>`
+  width: ${({ size }) => size ?? "80%"};
+  height: ${({ size }) => size ?? "80%"};
 `;
 
 export const Coordinate = styled.div<{
@@ -51,4 +51,27 @@ export const Identifier = styled.div`
   width: 25%;
   border-radius: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+`;
+
+export const PromotionModal = styled.div`
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 150%;
+  height: 150%;
+
+  img {
+    opacity: 0.8;
+    transform: scale(0.9);
+    border-radius: 10%;
+  }
+
+  img:hover {
+    opacity: 1;
+    transform: scale(1);
+  }
 `;
