@@ -177,7 +177,11 @@ const ChessSquare: React.FC<ChessSquareProps> = ({
   const isDark = (id.file + id.rank) % 2 === 0;
   const square: SquareType = { file, rank, algebraic, piece };
   const imageRef = useRef<HTMLImageElement>(null);
-  const pieceImage = piece && (typeof pieceSet === "string" ? PieceMap[pieceSet][piece.color][piece.type] : pieceSet[piece.color][piece.type]);
+  const pieceImage =
+    piece &&
+    (typeof pieceSet === "string"
+      ? PieceMap[pieceSet][piece.color][piece.type]
+      : pieceSet[piece.color][piece.type]);
   return (
     <Square
       size={size}

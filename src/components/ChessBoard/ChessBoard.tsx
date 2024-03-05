@@ -74,7 +74,7 @@ export type ChessBoardProps = HTMLProps & {
   ) => void;
   /**
    * Callback function that is called when a piece is dropped over a square
-   * 
+   *
    * @param from The square that the piece is being dragged from
    * @param on The square that the piece is being dropped on
    * @param ev The drag event for the square that is being dropped on.
@@ -87,7 +87,7 @@ export type ChessBoardProps = HTMLProps & {
   ) => void;
   /**
    * Callback function that is called when a piece is dragged over a square.
-   * 
+   *
    * @param square The square that the piece is being dragged over.
    * @param ev The drag event for the square that is being dragged over.
    * @returns
@@ -212,12 +212,19 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
         const to = SquareID.fromSquareIDType(move.to);
         if (from.algebraic === square.algebraic) draggable = true;
         if (dragging) {
-          if (dragging.algebraic === from.algebraic && to.algebraic === square.algebraic) droppable = true;
+          if (
+            dragging.algebraic === from.algebraic &&
+            to.algebraic === square.algebraic
+          )
+            droppable = true;
         }
       }
     }
     if (squareDraggable !== undefined) {
-      draggable = typeof squareDraggable === "boolean" ? squareDraggable : squareDraggable(square);
+      draggable =
+        typeof squareDraggable === "boolean"
+          ? squareDraggable
+          : squareDraggable(square);
     }
 
     return { showRank, showFile, showMove, draggable, droppable };
@@ -242,7 +249,9 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
             onClick={() => handleClick(square)}
             // draggable={squareDraggable}
             onDragStart={(square, ev) => {
-              setDragging(SquareID.fromSquareIDType(square.algebraic))
+              setDragging(
+                SquareID.fromSquareIDType(square.algebraic),
+              );
               if (onSquareDragStart) onSquareDragStart(square, ev);
             }}
             onDrop={onSquareDrop}
@@ -251,7 +260,7 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
             onDragEnter={onSquareDragEnter}
             onDragLeave={onSquareDragLeave}
             onDragEnd={(square, ev) => {
-              setDragging(null)
+              setDragging(null);
               if (onSquareDragEnd) onSquareDragEnd(square, ev);
             }}
             {...square}
