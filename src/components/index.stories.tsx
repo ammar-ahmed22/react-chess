@@ -144,7 +144,7 @@ const Game: React.FC<Omit<ChessBoardProps, UsedChessBoardProps>> = (
         ev.currentTarget.style.opacity = "1";
       }}
       onSquareDragEnter={(_square, ev) => {
-        ev.currentTarget.style.border = "solid 3px #fff";
+        ev.currentTarget.style.border = "solid 10px #fff";
       }}
       onSquareDragLeave={(_square, ev) => {
         ev.currentTarget.style.border = "unset";
