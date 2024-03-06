@@ -1,6 +1,6 @@
 <div align="center">
 <h1>@ammar-ahmed22/react-chess</h1>
-<p>Custom built Chess UI components/hooks for React to be used with my custom built <a href="https://google.ca">Chess engine.</a></p>
+<p>Custom built Chess UI components/hooks for React to be used with my custom built <a href="https://github.com/ammar-ahmed22/chess-engine">Chess engine.</a></p>
 </div>
 
 ## What is this?
