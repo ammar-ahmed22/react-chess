@@ -69,14 +69,7 @@ const Game: React.FC<Omit<ChessBoardProps, UsedChessBoardProps>> = (
         }
         // promotedPiece is set by ChessBoard
         if (promotedPiece) {
-          const pMove = executeMoves.find((m) => {
-            // move.promotion is a FEN character representing the piece. Potentially will change later on.
-            if (promotedPiece === "knight") {
-              return m.promotion?.toLowerCase() === "n";
-            } else {
-              return m.promotion?.toLowerCase() === promotedPiece[0];
-            }
-          });
+          const pMove = executeMoves.find((m) => m.promotion === promotedPiece);
           if (pMove) {
             executeMove(pMove);
             setPromotedPiece(undefined);
