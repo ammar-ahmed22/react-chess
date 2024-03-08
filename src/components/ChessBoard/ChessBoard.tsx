@@ -63,6 +63,11 @@ export type ChessBoardProps = HTMLProps & {
    */
   showPromotionModal?: PromotionData;
   /**
+   * If true, disables the board and darkens it
+   * @default false
+   */
+  disabled?: boolean;
+  /**
    * React Set State function to set the selected promote piece when modal is shown
    */
   setPromotedPiece?: React.Dispatch<
@@ -178,6 +183,7 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
   onSquareDragLeave,
   showPromotionModal,
   setPromotedPiece,
+  disabled,
   ...others
 }) => {
   const [squares, updateSquares] = useSquares({
@@ -272,7 +278,7 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
   return (
     <BoardContainer
       size={size}
-      blackOut={showPromotionModal && true}
+      disabled={disabled}
       {...others}
     >
       {squares.map((square) => {

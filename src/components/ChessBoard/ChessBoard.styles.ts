@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const BoardContainer = styled.div<{
   size: string | number;
-  blackOut?: boolean;
+  disabled?: boolean;
 }>`
   width: ${(props) => props.size};
   height: ${(props) => props.size};
@@ -20,6 +20,6 @@ export const BoardContainer = styled.div<{
     content: "";
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 2;
-    display: ${({ blackOut }) => (blackOut ? "block" : "none")};
+    display: ${({ disabled }) => (disabled ? "block" : "none")};
   }
 `;

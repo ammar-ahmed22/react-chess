@@ -12,6 +12,7 @@ import {
 } from "@ammar-ahmed22/chess-engine";
 // import { SquareType } from "../../hooks";
 import React, { useState, useEffect } from "react";
+import { SquareType } from "../hooks";
 
 type UsedChessBoardProps =
   | "position"
@@ -39,7 +40,7 @@ const Game: React.FC<Omit<ChessBoardProps, UsedChessBoardProps>> = (
   >();
   const [promotedPiece, setPromotedPiece] =
     useState<PromotePieceType>();
-
+  const [gameOver, setGameOver] = useState(false);
   const executeMove = (move: HalfMove) => {
     const result = chess.execute(move);
     if (result) {
@@ -50,6 +51,15 @@ const Game: React.FC<Omit<ChessBoardProps, UsedChessBoardProps>> = (
       setChess(chess.clone());
     }
   };
+
+  useEffect(() => {
+    if (!["in-progress", "check"].includes(chess.status())) {
+      setValidMoves([]);
+      alert(`Game over by: ${chess.status()}`)
+      console.log(`Game over by: ${chess.status()}`);
+      setGameOver(true);
+    }
+  }, [chess])
 
   useEffect(() => {
     if (fromID && toID) {
@@ -82,50 +92,55 @@ const Game: React.FC<Omit<ChessBoardProps, UsedChessBoardProps>> = (
     }
   }, [fromID, toID, promotedPiece]);
 
-  useEffect(() => {
-    // black moves are chosen at random after 1 second.
-    if (chess.colorToMove() === "black") {
-      setTimeout(() => {
-        const rndIdx = Math.floor(Math.random() * validMoves.length);
-        const move = validMoves[rndIdx];
-        if (move) {
-          executeMove(move);
-        }
-      }, 1000);
+  // useEffect(() => {
+  //   // black moves are chosen at random after 1 second.
+  //   if (chess.colorToMove() === "black") {
+  //     setTimeout(() => {
+  //       const rndIdx = Math.floor(Math.random() * validMoves.length);
+  //       const move = validMoves[rndIdx];
+  //       if (move) {
+  //         executeMove(move);
+  //       }
+  //     }, 1000);
+  //   }
+  // }, [chess]);
+
+  const handleSquareClick = (square: SquareType) => {
+    for (let move of validMoves) {
+      const from = SquareID.fromSquareIDType(move.from);
+      const to = SquareID.fromSquareIDType(move.to);
+      if (from.algebraic === square.algebraic) {
+        setFromID(from);
+      }
+      if (
+        fromID?.algebraic === from.algebraic &&
+        to.algebraic === square.algebraic
+      ) {
+        setToID(to);
+      }
     }
-  }, [chess]);
+  }
+
+  const handleSquareDragStart = (square: SquareType) => {
+    for (let move of validMoves) {
+      const from = SquareID.fromSquareIDType(move.from);
+      if (from.algebraic === square.algebraic) {
+        setFromID(from);
+      }
+    }
+  }
 
   return (
     <ChessBoard
       {...props}
       position={fen}
+      disabled={(promotion || gameOver) ? true : false}
       flipBoard={chess.colorToMove() === "black"}
       validMoves={validMoves}
       showPromotionModal={promotion}
       setPromotedPiece={setPromotedPiece}
-      onSquareClick={(square) => {
-        for (let move of validMoves) {
-          const from = SquareID.fromSquareIDType(move.from);
-          const to = SquareID.fromSquareIDType(move.to);
-          if (from.algebraic === square.algebraic) {
-            setFromID(from);
-          }
-          if (
-            fromID?.algebraic === from.algebraic &&
-            to.algebraic === square.algebraic
-          ) {
-            setToID(to);
-          }
-        }
-      }}
-      onSquareDragStart={(square) => {
-        for (let move of validMoves) {
-          const from = SquareID.fromSquareIDType(move.from);
-          if (from.algebraic === square.algebraic) {
-            setFromID(from);
-          }
-        }
-      }}
+      onSquareClick={handleSquareClick}
+      onSquareDragStart={handleSquareDragStart}
       onSquareDrop={(_from, to, ev) => {
         ev.currentTarget.style.border = "unset";
         setToID(SquareID.fromSquareIDType(to.algebraic));

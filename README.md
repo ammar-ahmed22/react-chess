@@ -49,6 +49,7 @@ export default function App() {
 | Prop | Type | Default | Description | 
 | :--- | :--- | :------ | :---------- |
 | darkColor | <code>string</code> | `"#b58863"` | The color to use for dark squares. Must be a valid CSS color string (e.g. "#fff", "rgb(255, 255, 255)", etc.) |
+| disabled | <code>boolean</code> | `false` | If true, disables the board and darkens it |
 | flipBoard | <code>boolean</code> | `false` | If true, board is flipped. |
 | lightColor | <code>string</code> | `"#f0d9b5"` | The color to use for light squares. Must be a valid CSS color string (e.g. "#fff", "rgb(255, 255, 255)", etc.) |
 | pieceSet | <code>PieceSet &#124; PieceImageMap</code> | `"cases"` | The piece set (images) to use, provided are the `cases` and `neo` piece sets. Otherwise, provide a custom piece image map to use custom pieces. |
