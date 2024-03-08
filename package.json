@@ -1,6 +1,6 @@
 {
   "name": "@ammar-ahmed22/react-chess",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "description": "React components to use with my custom chess engine",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
