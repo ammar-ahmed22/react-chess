@@ -5,7 +5,6 @@ import { SquareType, useSquares } from "../../hooks";
 import type { PieceSet, PieceImageMap } from "../../assets";
 import type {
   HalfMove,
-  SquareIDType,
   PieceType,
   Color,
 } from "@ammar-ahmed22/chess-engine";
@@ -13,7 +12,7 @@ import { SquareID } from "@ammar-ahmed22/chess-engine";
 
 type HTMLProps = React.HTMLAttributes<HTMLDivElement>;
 export type PromotePieceType = Omit<PieceType, "pawn" | "king">;
-export type PromotionData = { id: SquareIDType; color: Color };
+export type PromotionData = { id: string; color: Color };
 
 export type ChessBoardProps = HTMLProps & {
   /**
@@ -204,7 +203,7 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
     if (clickedSquare && validMoves) {
       setCurrentMoves(
         validMoves.filter((m) => {
-          const from = SquareID.fromSquareIDType(m.from);
+          const from = SquareID.fromAlgebraic(m.from);
           return from.algebraic === clickedSquare.algebraic;
         }),
       );
@@ -228,14 +227,14 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
     }
 
     for (let move of currentMoves) {
-      const to = SquareID.fromSquareIDType(move.to);
+      const to = SquareID.fromAlgebraic(move.to);
       if (to.algebraic === square.algebraic) showMove = true;
     }
 
     if (validMoves) {
       for (let move of validMoves) {
-        const from = SquareID.fromSquareIDType(move.from);
-        const to = SquareID.fromSquareIDType(move.to);
+        const from = SquareID.fromAlgebraic(move.from);
+        const to = SquareID.fromAlgebraic(move.to);
         if (from.algebraic === square.algebraic) draggable = true;
         if (dragging) {
           if (
@@ -254,7 +253,7 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
     }
 
     if (showPromotionModal) {
-      const id = SquareID.fromSquareIDType(showPromotionModal.id);
+      const id = SquareID.fromAlgebraic(showPromotionModal.id);
       if (id.algebraic === square.algebraic)
         promotionModal = showPromotionModal.color;
     }
@@ -271,7 +270,7 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
   };
 
   const handleClick = (square: SquareType) => {
-    setClickedSquare(SquareID.fromSquareIDType(square.algebraic));
+    setClickedSquare(SquareID.fromAlgebraic(square.algebraic));
     if (onSquareClick) onSquareClick(square);
   };
 
@@ -292,7 +291,7 @@ const ChessBoard: React.FC<ChessBoardProps> = ({
             onClick={() => handleClick(square)}
             onDragStart={(square, ev) => {
               setDragging(
-                SquareID.fromSquareIDType(square.algebraic),
+                SquareID.fromAlgebraic(square.algebraic),
               );
               if (onSquareDragStart) onSquareDragStart(square, ev);
             }}
