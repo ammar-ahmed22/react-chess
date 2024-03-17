@@ -13,7 +13,7 @@
   "author": "Ammar Ahmed <ammar.ahmed1@uwaterloo.ca>",
   "license": "MIT",
   "devDependencies": {
-    "@ammar-ahmed22/chess-engine": "^0.2.0",
+    "@ammar-ahmed22/chess-engine": "^0.4.1",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-image": "^3.0.3",
     "@rollup/plugin-node-resolve": "^15.2.3",

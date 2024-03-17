@@ -64,8 +64,8 @@ const Game: React.FC<Omit<ChessBoardProps, UsedChessBoardProps>> = (
   useEffect(() => {
     if (fromID && toID) {
       const executeMoves = chess.validMoves().filter((move) => {
-        const from = SquareID.fromSquareIDType(move.from);
-        const to = SquareID.fromSquareIDType(move.to);
+        const from = SquareID.fromAlgebraic(move.from);
+        const to = SquareID.fromAlgebraic(move.to);
         return (
           from.algebraic === fromID.algebraic &&
           to.algebraic === toID.algebraic
@@ -107,8 +107,8 @@ const Game: React.FC<Omit<ChessBoardProps, UsedChessBoardProps>> = (
 
   const handleSquareClick = (square: SquareType) => {
     for (let move of validMoves) {
-      const from = SquareID.fromSquareIDType(move.from);
-      const to = SquareID.fromSquareIDType(move.to);
+      const from = SquareID.fromAlgebraic(move.from);
+      const to = SquareID.fromAlgebraic(move.to);
       if (from.algebraic === square.algebraic) {
         setFromID(from);
       }
@@ -123,7 +123,7 @@ const Game: React.FC<Omit<ChessBoardProps, UsedChessBoardProps>> = (
 
   const handleSquareDragStart = (square: SquareType) => {
     for (let move of validMoves) {
-      const from = SquareID.fromSquareIDType(move.from);
+      const from = SquareID.fromAlgebraic(move.from);
       if (from.algebraic === square.algebraic) {
         setFromID(from);
       }
@@ -143,7 +143,7 @@ const Game: React.FC<Omit<ChessBoardProps, UsedChessBoardProps>> = (
       onSquareDragStart={handleSquareDragStart}
       onSquareDrop={(_from, to, ev) => {
         ev.currentTarget.style.border = "unset";
-        setToID(SquareID.fromSquareIDType(to.algebraic));
+        setToID(SquareID.fromAlgebraic(to.algebraic));
       }}
       onSquareDrag={(_square, ev) => {
         ev.currentTarget.style.opacity = "0";

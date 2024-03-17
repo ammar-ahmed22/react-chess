@@ -12,10 +12,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ammar-ahmed22/chess-engine@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "@ammar-ahmed22/chess-engine@npm:0.2.0"
-  checksum: 10c0/84e5664a7f73c4153c20b43a385304362453ce70e7873eaab8cccfe5a53eb20c19f8a9fb34d082808e7ac467374d6c698b74bf81aff89bcc8767b3ed6bbea9ff
+"@ammar-ahmed22/chess-engine@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "@ammar-ahmed22/chess-engine@npm:0.4.1"
+  checksum: 10c0/97c8a441b5d49791dd6d739dcacb25d6cb9688a2d09c926dc87daf0b6325e1f667e0db3d0c4e77d063dbc0def4d67cae965c91244941d9592566c4d51ed93787
   languageName: node
   linkType: hard
 
@@ -23,7 +23,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ammar-ahmed22/react-chess@workspace:."
   dependencies:
-    "@ammar-ahmed22/chess-engine": "npm:^0.2.0"
+    "@ammar-ahmed22/chess-engine": "npm:^0.4.1"
     "@rollup/plugin-commonjs": "npm:^25.0.7"
     "@rollup/plugin-image": "npm:^3.0.3"
     "@rollup/plugin-node-resolve": "npm:^15.2.3"
